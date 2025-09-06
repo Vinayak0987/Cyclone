@@ -1,0 +1,19 @@
+{
+  "dataset_info": {
+    "name": "Cyclone Detection Dataset",
+    "version": "1.0",
+    "description": "Satellite images of cyclones with YOLO format annotations"
+  },
+  "statistics": {
+    "total_images": 120,
+    "total_labels": 121,
+    "images_with_labels": 120
+  },
+  "splits": {
+    "train": 11,
+    "test": 1
+  },
+  "classes": {
+    "0": "cyclone"
+  }
+}

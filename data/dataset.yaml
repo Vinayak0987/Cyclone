@@ -1,0 +1,6 @@
+names:
+  0: cyclone
+nc: 1  # number of classes
+path: ./data  # relative path to data directory
+train: train/images
+val: val/images
