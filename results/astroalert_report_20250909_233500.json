@@ -1,13 +1,13 @@
 {
-  "analysis_id": "astroalert_20250909_233635",
-  "analysis_timestamp": "2025-09-09T23:36:35.561118",
+  "analysis_id": "astroalert_20250909_233500",
+  "analysis_timestamp": "2025-09-09T23:35:00.582263",
   "input_data": {
     "image_path": "data/train/images/1.jpg",
     "location": {
       "latitude": 19.076,
       "longitude": 72.8777
     },
-    "date_time": "2025-09-09T23:36:06.765508"
+    "date_time": "2025-09-09T23:34:43.872134"
   },
   "results": {
     "detection": {
@@ -2877,12 +2877,12 @@
         0.0557865,
         0.0638714
       ],
-      "detection_time": "2025-09-09T23:36:35.556640",
+      "detection_time": "2025-09-09T23:35:00.580622",
       "avg_confidence": 0.017287820384615384,
       "max_confidence": 0.0638714
     },
     "astrology": {
-      "prediction_time": "2025-09-09T23:36:06.765508",
+      "prediction_time": "2025-09-09T23:34:43.872134",
       "location": {
         "latitude": 19.076,
         "longitude": 72.8777
@@ -2900,8 +2900,8 @@
         },
         "tithi": "Unknown",
         "ascendant": 0,
-        "julian_day": 2460928.4833333334,
-        "date_time": "2025-09-09T23:36:06.765508",
+        "julian_day": 2460928.4819444446,
+        "date_time": "2025-09-09T23:34:43.872134",
         "location": {
           "latitude": 19.076,
           "longitude": 72.8777
@@ -2917,7 +2917,7 @@
       "summary": "Cyclone Risk: LOW (VRS: 0.0/100)"
     },
     "combined": {
-      "timestamp": "2025-09-09T23:36:35.561007",
+      "timestamp": "2025-09-09T23:35:00.582225",
       "ai_detection": {
         "cyclones_detected": 260,
         "average_confidence": 0.017287820384615384,

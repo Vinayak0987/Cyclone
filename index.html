@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌪 AstroAlert - Cyclone Prediction System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="cyclone-icon">🌪</span>
+                    AstroAlert
+                </h1>
+                <p class="subtitle">Cyclone Prediction using AI & Vedic Astrology</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="icon">📡</span>
+                        Satellite Image Analysis
+                    </h2>
+                    
+                    <form id="analysisForm" class="analysis-form">
+                        <!-- Image Upload -->
+                        <div class="form-group">
+                            <label for="imageUpload" class="form-label">Upload Satellite Image</label>
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="imageUpload" name="image" accept="image/*" required>
+                                <div class="file-upload-display">
+                                    <span class="upload-icon">📁</span>
+                                    <span class="upload-text">Choose satellite image...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location Inputs -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="latitude" class="form-label">Latitude</label>
+                                <input type="number" id="latitude" name="latitude" 
+                                       step="0.0001" placeholder="19.0760" value="19.0760" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="longitude" class="form-label">Longitude</label>
+                                <input type="number" id="longitude" name="longitude" 
+                                       step="0.0001" placeholder="72.8777" value="72.8777" required>
+                            </div>
+                        </div>
+
+                        <!-- DateTime Input -->
+                        <div class="form-group">
+                            <label for="datetime" class="form-label">Analysis Date & Time</label>
+                            <input type="datetime-local" id="datetime" name="datetime" required>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn" id="analyzeBtn">
+                            <span class="btn-icon">🔍</span>
+                            <span class="btn-text">Analyze Cyclone Risk</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section id="loadingSection" class="loading-section hidden">
+                <div class="card">
+                    <div class="loading-content">
+                        <div class="spinner"></div>
+                        <h3>Analyzing...</h3>
+                        <p>Processing satellite imagery and calculating risk assessment</p>
+                        <div class="loading-steps">
+                            <div class="step active">🤖 AI Detection</div>
+                            <div class="step">🔮 Astrology Analysis</div>
+                            <div class="step">📊 Risk Assessment</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="results-grid">
+                    <!-- AI Detection Results -->
+                    <div class="card result-card">
+                        <h3 class="card-title">
+                            <span class="icon">🤖</span>
+                            AI Detection
+                        </h3>
+                        <div id="aiResults" class="result-content">
+                            <div class="metric">
+                                <span class="metric-label">Cyclones Detected:</span>
+                                <span id="cyclonesCount" class="metric-value">0</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Average Confidence:</span>
+                                <span id="avgConfidence" class="metric-value">0%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">AI Risk Score:</span>
+                                <span id="aiRiskScore" class="metric-value">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Astrology Results -->
+                    <div class="card result-card">
+                        <h3 class="card-title">
+                            <span class="icon">🔮</span>
+                            Vedic Astrology
+                        </h3>
+                        <div id="astrologyResults" class="result-content">
+                            <div class="metric">
+                                <span class="metric-label">VRS Score:</span>
+                                <span id="vrsScore" class="metric-value">0/100</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Risk Level:</span>
+                                <span id="astrologyRisk" class="metric-value risk-badge">LOW</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Risk Factors:</span>
+                                <div id="riskFactors" class="risk-factors"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Combined Assessment -->
+                    <div class="card result-card combined-assessment">
+                        <h3 class="card-title">
+                            <span class="icon">⚡</span>
+                            Combined Assessment
+                        </h3>
+                        <div id="combinedResults" class="result-content">
+                            <div class="risk-score-display">
+                                <div class="risk-circle">
+                                    <span id="combinedRiskScore" class="risk-score">0</span>
+                                    <span class="risk-score-label">/100</span>
+                                </div>
+                                <div id="finalRiskLevel" class="final-risk-level">LOW</div>
+                            </div>
+                            <div class="action-required">
+                                <h4>Action Required:</h4>
+                                <p id="actionText">Standard monitoring recommended</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="card result-card recommendations-card">
+                        <h3 class="card-title">
+                            <span class="icon">📋</span>
+                            Recommendations
+                        </h3>
+                        <div id="recommendationsList" class="recommendations-list">
+                            <!-- Recommendations will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Preview -->
+                <div class="card image-preview-card">
+                    <h3 class="card-title">
+                        <span class="icon">📸</span>
+                        Analyzed Image
+                    </h3>
+                    <div class="image-container">
+                        <img id="previewImage" src="" alt="Analyzed satellite image" class="preview-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="errorSection" class="error-section hidden">
+                <div class="card error-card">
+                    <h3 class="card-title">
+                        <span class="icon">❌</span>
+                        Analysis Error
+                    </h3>
+                    <div id="errorMessage" class="error-content">
+                        <p>An error occurred during analysis. Please try again.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 AstroAlert - Cyclone Prediction System | Combining AI & Vedic Astrology</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

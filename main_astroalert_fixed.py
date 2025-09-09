@@ -22,7 +22,7 @@ except ImportError as e:
     sys.exit(1)
 
 class AstroAlert:
-    def __init__(self, model_path: str = "yolov5/runs/train/cyclone_detector5/weights/best.pt"):
+    def __init__(self, model_path: str = "yolov5/runs/train/cyclone_detector52/weights/best.pt"):
         """
         Initialize AstroAlert system
         
@@ -37,7 +37,7 @@ class AstroAlert:
             print(f"Warning: Model not found at {model_path}")
             print("Please train the model first or provide correct path")
         
-        print("🌪 AstroAlert - Cyclone Prediction System Initialized")
+        print("AstroAlert - Cyclone Prediction System Initialized")
         print("=" * 60)
 
     def detect_cyclones(self, image_path: str, conf_threshold: float = 0.01) -> Dict:
@@ -51,7 +51,7 @@ class AstroAlert:
         Returns:
             Dictionary with detection results
         """
-        print(f"🔍 Detecting cyclones in: {image_path}")
+        print(f"Detecting cyclones in: {image_path}")
         
         try:
             # Run YOLOv5 detection using subprocess
@@ -108,11 +108,11 @@ class AstroAlert:
                     detection_results['avg_confidence'] = 0
                     detection_results['max_confidence'] = 0
             
-            print(f"✅ Detected {detection_results['total_cyclones']} cyclones")
+            print(f"Detected {detection_results['total_cyclones']} cyclones")
             return detection_results
             
         except Exception as e:
-            print(f"❌ Error during cyclone detection: {e}")
+            print(f"Error during cyclone detection: {e}")
             return {
                 'image_path': image_path,
                 'error': str(e),
@@ -132,17 +132,17 @@ class AstroAlert:
         Returns:
             Dictionary with VRS analysis
         """
-        print(f"🔮 Calculating Vedic Astrology Risk Score...")
-        print(f"📍 Location: {latitude:.4f}, {longitude:.4f}")
-        print(f"🕐 Time: {date_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"Calculating Vedic Astrology Risk Score...")
+        print(f"Location: {latitude:.4f}, {longitude:.4f}")
+        print(f"Time: {date_time.strftime('%Y-%m-%d %H:%M:%S')}")
         
         try:
             result = self.astrology_analyzer.get_cyclone_prediction(date_time, latitude, longitude)
-            print(f"✅ VRS Score: {result['vrs_analysis']['vrs_score']:.1f}/100")
-            print(f"⚠️  Risk Level: {result['vrs_analysis']['risk_level']}")
+            print(f"VRS Score: {result['vrs_analysis']['vrs_score']:.1f}/100")
+            print(f"Risk Level: {result['vrs_analysis']['risk_level']}")
             return result
         except Exception as e:
-            print(f"❌ Error during astrology calculation: {e}")
+            print(f"Error during astrology calculation: {e}")
             return {
                 'error': str(e),
                 'vrs_analysis': {
@@ -164,7 +164,7 @@ class AstroAlert:
         Returns:
             Combined risk assessment
         """
-        print("🔄 Generating combined risk assessment...")
+        print("Generating combined risk assessment...")
         
         # Base risk from AI detection
         ai_risk = 0
@@ -218,10 +218,10 @@ class AstroAlert:
             'recommendations': self._generate_recommendations(combined_risk, final_risk_level)
         }
         
-        print(f"🎯 Combined Risk Assessment Complete!")
-        print(f"📊 Final Risk Level: {final_risk_level}")
-        print(f"🔢 Combined Risk Score: {combined_risk:.1f}/100")
-        print(f"📋 Action Required: {action_required}")
+        print(f"Combined Risk Assessment Complete!")
+        print(f"Final Risk Level: {final_risk_level}")
+        print(f"Combined Risk Score: {combined_risk:.1f}/100")
+        print(f"Action Required: {action_required}")
         
         return combined_assessment
 
@@ -281,7 +281,7 @@ class AstroAlert:
         if date_time is None:
             date_time = datetime.datetime.now()
         
-        print("🚀 Starting Complete AstroAlert Analysis")
+        print("Starting Complete AstroAlert Analysis")
         print("=" * 60)
         
         # Step 1: AI Cyclone Detection
@@ -312,9 +312,9 @@ class AstroAlert:
         # Save results
         self._save_results(final_report)
         
-        print("\n🎉 AstroAlert Analysis Complete!")
+        print("\nAstroAlert Analysis Complete!")
         print("=" * 60)
-        print(f"📁 Results saved to: results/astroalert_report.json")
+        print(f"Results saved to: results/astroalert_report.json")
         
         return final_report
 
@@ -333,7 +333,7 @@ class AstroAlert:
 
 def main():
     """Main function for testing and demonstration"""
-    print("🌪 AstroAlert - Cyclone Prediction System (Fixed Version)")
+    print("AstroAlert - Cyclone Prediction System (Fixed Version)")
     print("=" * 60)
     
     # Initialize AstroAlert
@@ -345,14 +345,14 @@ def main():
         latitude = float(sys.argv[2]) if len(sys.argv) > 2 else 19.0760  # Mumbai
         longitude = float(sys.argv[3]) if len(sys.argv) > 3 else 72.8777  # Mumbai
         
-        print(f"📸 Analyzing image: {image_path}")
-        print(f"📍 Location: {latitude}, {longitude}")
+        print(f"Analyzing image: {image_path}")
+        print(f"Location: {latitude}, {longitude}")
         
         # Run complete analysis
         results = astroalert.run_complete_analysis(image_path, latitude, longitude)
         
         # Display summary
-        print("\n📊 ANALYSIS SUMMARY")
+        print("\nANALYSIS SUMMARY")
         print("-" * 30)
         print(f"Cyclones Detected: {results['results']['detection']['total_cyclones']}")
         
