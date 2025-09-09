@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌪 AstroAlert - Multi-Location Monitoring Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Navigation Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="app-title">
+                    <span class="cyclone-icon">🌪</span>
+                    AstroAlert
+                </h1>
+                <p class="app-subtitle">Multi-Location Monitoring</p>
+            </div>
+            
+            <div class="nav-menu">
+                <button class="nav-item active" data-tab="overview">
+                    <span class="nav-icon">📊</span>
+                    Overview
+                </button>
+                <button class="nav-item" data-tab="locations">
+                    <span class="nav-icon">🌍</span>
+                    Locations
+                </button>
+                <button class="nav-item" data-tab="analytics">
+                    <span class="nav-icon">📈</span>
+                    Analytics
+                </button>
+                <button class="nav-item" data-tab="alerts">
+                    <span class="nav-icon">🔔</span>
+                    Alerts
+                </button>
+                <button class="nav-item" data-tab="legacy">
+                    <span class="nav-icon">📸</span>
+                    Single Analysis
+                </button>
+                <button class="nav-item" data-tab="settings">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="connection-status" id="connectionStatus">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Connecting...</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview-tab">
+                <div class="tab-header">
+                    <h2>🌪 System Overview</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="refreshOverview">
+                            <span>🔄</span> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🌍</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalLocations">-</div>
+                            <div class="stat-label">Monitored Locations</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalAnalyses">-</div>
+                            <div class="stat-label">Analyses (30 days)</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚨</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="activeAlerts">-</div>
+                            <div class="stat-label">Active Alerts</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚙️</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="monitoringStatus">-</div>
+                            <div class="stat-label">Monitoring Status</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Map -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📍 Real-Time Location Map</h3>
+                        <div class="map-controls">
+                            <div class="map-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color low"></span> Low Risk
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color moderate"></span> Moderate Risk
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color high"></span> High Risk
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color extreme"></span> Extreme Risk
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div id="locationMap" class="map-container"></div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <div class="card half-width">
+                        <div class="card-header">
+                            <h3>📋 Recent Analyses</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="recentAnalyses" class="activity-list">
+                                <div class="loading">Loading recent analyses...</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card half-width">
+                        <div class="card-header">
+                            <h3>🔔 Recent Alerts</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="recentAlerts" class="activity-list">
+                                <div class="loading">Loading recent alerts...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Locations Tab -->
+            <div class="tab-content" id="locations-tab">
+                <div class="tab-header">
+                    <h2>🌍 Location Management</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="addLocationBtn">
+                            <span>➕</span> Add Location
+                        </button>
+                    </div>
+                </div>
+
+                <div class="locations-grid" id="locationsGrid">
+                    <div class="loading">Loading locations...</div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-content" id="analytics-tab">
+                <div class="tab-header">
+                    <h2>📈 Analytics Dashboard</h2>
+                    <div class="header-actions">
+                        <select id="analyticsPeriod" class="select-input">
+                            <option value="7">Last 7 days</option>
+                            <option value="30" selected>Last 30 days</option>
+                            <option value="90">Last 90 days</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>📊 Risk Level Distribution</h3>
+                        </div>
+                        <div class="card-content">
+                            <canvas id="riskDistributionChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>📈 Risk Trends Over Time</h3>
+                        </div>
+                        <div class="card-content">
+                            <canvas id="riskTrendsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🎯 Prediction Accuracy</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="accuracy-metrics" id="accuracyMetrics">
+                                <div class="loading">Loading accuracy data...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🌐 Location Performance</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="performance-list" id="locationPerformance">
+                                <div class="loading">Loading performance data...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts Tab -->
+            <div class="tab-content" id="alerts-tab">
+                <div class="tab-header">
+                    <h2>🔔 Alert Management</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="testNotificationsBtn">
+                            <span>🧪</span> Test Notifications
+                        </button>
+                        <button class="btn btn-primary" id="acknowledgeAllBtn">
+                            <span>✅</span> Acknowledge All
+                        </button>
+                    </div>
+                </div>
+
+                <div class="alerts-container">
+                    <div class="alert-filters">
+                        <button class="filter-btn active" data-filter="all">All Alerts</button>
+                        <button class="filter-btn" data-filter="EXTREME">Extreme</button>
+                        <button class="filter-btn" data-filter="HIGH">High</button>
+                        <button class="filter-btn" data-filter="MODERATE">Moderate</button>
+                        <button class="filter-btn" data-filter="unacknowledged">Unacknowledged</button>
+                    </div>
+
+                    <div class="alerts-list" id="alertsList">
+                        <div class="loading">Loading alerts...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legacy Single Analysis Tab -->
+            <div class="tab-content" id="legacy-tab">
+                <div class="tab-header">
+                    <h2>📸 Single Image Analysis</h2>
+                    <p class="tab-subtitle">Upload a satellite image for one-time analysis</p>
+                </div>
+
+                <!-- Legacy Analysis Form (from original index.html) -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📡 Satellite Image Analysis</h3>
+                    </div>
+                    <div class="card-content">
+                        <form id="legacyAnalysisForm" class="analysis-form">
+                            <!-- Image Upload -->
+                            <div class="form-group">
+                                <label for="legacyImageUpload" class="form-label">Upload Satellite Image</label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="legacyImageUpload" name="image" accept="image/*" required>
+                                    <div class="file-upload-display">
+                                        <span class="upload-icon">📁</span>
+                                        <span class="upload-text">Choose satellite image...</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Location Inputs -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="legacyLatitude" class="form-label">Latitude</label>
+                                    <input type="number" id="legacyLatitude" name="latitude" 
+                                           step="0.0001" placeholder="19.0760" value="19.0760" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="legacyLongitude" class="form-label">Longitude</label>
+                                    <input type="number" id="legacyLongitude" name="longitude" 
+                                           step="0.0001" placeholder="72.8777" value="72.8777" required>
+                                </div>
+                            </div>
+
+                            <!-- DateTime Input -->
+                            <div class="form-group">
+                                <label for="legacyDatetime" class="form-label">Analysis Date & Time</label>
+                                <input type="datetime-local" id="legacyDatetime" name="datetime" required>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-large" id="legacyAnalyzeBtn">
+                                <span class="btn-icon">🔍</span>
+                                <span class="btn-text">Analyze Cyclone Risk</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Legacy Results will be displayed here -->
+                <div id="legacyResults" class="legacy-results"></div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings-tab">
+                <div class="tab-header">
+                    <h2>⚙️ System Settings</h2>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>👤 User Profile</h3>
+                        </div>
+                        <div class="card-content">
+                            <form id="userProfileForm" class="settings-form">
+                                <div class="form-group">
+                                    <label for="userName" class="form-label">Name</label>
+                                    <input type="text" id="userName" name="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userEmail" class="form-label">Email</label>
+                                    <input type="email" id="userEmail" name="email" placeholder="your@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userPhone" class="form-label">Phone (for SMS alerts)</label>
+                                    <input type="tel" id="userPhone" name="phone" placeholder="+1234567890">
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <span>💾</span> Save Profile
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🔔 Notification Settings</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="settings-form">
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="emailNotifications" checked>
+                                        <span class="checkmark"></span>
+                                        Email Notifications
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="smsNotifications">
+                                        <span class="checkmark"></span>
+                                        SMS Notifications (High Risk Only)
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alertThreshold" class="form-label">Default Alert Threshold</label>
+                                    <select id="alertThreshold" name="alert_threshold" class="select-input">
+                                        <option value="LOW">Low Risk and Above</option>
+                                        <option value="MODERATE" selected>Moderate Risk and Above</option>
+                                        <option value="HIGH">High Risk Only</option>
+                                        <option value="EXTREME">Extreme Risk Only</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🔍 Monitoring Settings</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="monitoring-info" id="monitoringInfo">
+                                <div class="loading">Loading monitoring settings...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🧪 System Testing</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="test-actions">
+                                <button class="btn btn-secondary" id="testBackendBtn">
+                                    <span>🔧</span> Test Backend
+                                </button>
+                                <button class="btn btn-secondary" id="testDatabaseBtn">
+                                    <span>🗄️</span> Test Database
+                                </button>
+                                <button class="btn btn-secondary" id="testChatbotBtn">
+                                    <span>🤖</span> Test Chatbot
+                                </button>
+                            </div>
+                            <div id="testResults" class="test-results"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modals -->
+        <!-- Add Location Modal -->
+        <div class="modal" id="addLocationModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>➕ Add New Location</h3>
+                    <button class="modal-close" id="closeAddLocationModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="addLocationForm" class="modal-form">
+                        <div class="form-group">
+                            <label for="locationName" class="form-label">Location Name</label>
+                            <input type="text" id="locationName" name="name" placeholder="e.g., Miami Beach" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="locationLatitude" class="form-label">Latitude</label>
+                                <input type="number" id="locationLatitude" name="latitude" 
+                                       step="0.0001" placeholder="25.7617" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="locationLongitude" class="form-label">Longitude</label>
+                                <input type="number" id="locationLongitude" name="longitude" 
+                                       step="0.0001" placeholder="-80.1918" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="locationThreshold" class="form-label">Alert Threshold</label>
+                            <select id="locationThreshold" name="alert_threshold" class="select-input">
+                                <option value="LOW">Low Risk and Above</option>
+                                <option value="MODERATE" selected>Moderate Risk and Above</option>
+                                <option value="HIGH">High Risk Only</option>
+                                <option value="EXTREME">Extreme Risk Only</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelAddLocation">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Add Location</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot (Legacy support) -->
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header" id="chatbotHeader">
+                <div class="chatbot-info">
+                    <span class="chatbot-icon">🤖</span>
+                    <div class="chatbot-details">
+                        <span class="chatbot-name">CycloneBot</span>
+                        <span class="chatbot-status" id="chatbotStatus">Initializing...</span>
+                    </div>
+                </div>
+                <div class="chatbot-controls">
+                    <button class="chatbot-control-btn" id="clearChatBtn" title="Clear conversation">
+                        <span>🗑️</span>
+                    </button>
+                    <button class="chatbot-control-btn" id="chatbotToggle" title="Toggle chatbot">
+                        <span id="chatbotToggleIcon">💬</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chatbot-content" id="chatbotContent">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="welcome-message">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                <p>👋 Hi! I'm CycloneBot, now enhanced for multi-location monitoring!</p>
+                                <p>Ask me about cyclones, your analysis results, or help with the new dashboard features!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="suggested-questions" id="suggestedQuestions">
+                    <div class="suggestions-label">💡 Suggested questions:</div>
+                    <div class="suggestions-list" id="suggestionsList">
+                        <!-- Suggestions will be populated here -->
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chatInput" class="chat-input" 
+                               placeholder="Ask about your locations, alerts, or analysis results..." 
+                               maxlength="500">
+                        <button id="sendChatBtn" class="send-chat-btn" title="Send message">
+                            <span>📤</span>
+                        </button>
+                    </div>
+                    <div class="chat-input-info">
+                        <span class="char-count" id="charCount">0/500</span>
+                        <span class="chat-status" id="chatInputStatus">Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="dashboard.js"></script>
+    <script src="script.js"></script> <!-- Legacy chatbot support -->
+</body>
+</html>

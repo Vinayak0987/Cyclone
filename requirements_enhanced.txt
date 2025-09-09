@@ -1,0 +1,64 @@
+# Enhanced AstroAlert Requirements
+# Core Flask and API dependencies
+Flask==2.3.3
+Flask-CORS==4.0.0
+Werkzeug==2.3.7
+
+# AI and Computer Vision
+opencv-python==4.8.1.78
+numpy==1.24.4
+torch==2.0.1
+torchvision==0.15.2
+ultralytics==8.0.196
+
+# Astrology Calculations
+pyswisseph==2.10.3.2
+
+# Database and Storage
+sqlite3  # Built into Python
+pymongo==4.5.0  # Optional for MongoDB support
+
+# Background Tasks and Scheduling
+schedule==1.2.0
+threading  # Built into Python
+
+# HTTP Requests and APIs
+requests==2.31.0
+
+# Email and SMS Notifications
+smtplib  # Built into Python
+email  # Built into Python
+
+# AI Chatbot (Gemini)
+google-generativeai==0.3.1
+
+# Date and Time
+datetime  # Built into Python
+
+# System and OS
+os  # Built into Python
+sys  # Built into Python
+pathlib  # Built into Python
+subprocess  # Built into Python
+tempfile  # Built into Python
+uuid  # Built into Python
+json  # Built into Python
+traceback  # Built into Python
+contextlib  # Built into Python
+
+# Math and Statistics
+math  # Built into Python
+statistics  # Built into Python
+
+# Type Hints
+typing  # Built into Python
+
+# Development and Testing (Optional)
+pytest==7.4.2
+pytest-flask==1.2.0
+black==23.9.1
+flake8==6.0.0
+
+# Security (Optional)
+bcrypt==4.0.1
+cryptography==41.0.7
