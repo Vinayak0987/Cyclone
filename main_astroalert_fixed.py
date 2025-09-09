@@ -22,7 +22,7 @@ except ImportError as e:
     sys.exit(1)
 
 class AstroAlert:
-    def __init__(self, model_path: str = "yolov5/runs/train/cyclone_detector52/weights/best.pt"):
+    def __init__(self, model_path: str = "yolov5/runs/train/cyclone_detector_improved/weights/best.pt"):
         """
         Initialize AstroAlert system
         
@@ -40,7 +40,7 @@ class AstroAlert:
         print("AstroAlert - Cyclone Prediction System Initialized")
         print("=" * 60)
 
-    def detect_cyclones(self, image_path: str, conf_threshold: float = 0.01) -> Dict:
+    def detect_cyclones(self, image_path: str, conf_threshold: float = 0.5) -> Dict:
         """
         Detect cyclones in satellite image using YOLOv5
         
@@ -92,12 +92,14 @@ class AstroAlert:
                                     class_id, x_center, y_center, width, height = parts[:5]
                                     confidence = float(parts[5]) if len(parts) > 5 else 0.5
                                     
-                                    detection_results['detections'].append({
-                                        'bbox': [float(x_center), float(y_center), float(width), float(height)],
-                                        'confidence': confidence,
-                                        'class': int(class_id)
-                                    })
-                                    detection_results['confidence_scores'].append(confidence)
+                                    # Only accept detections with reasonable confidence
+                                    if confidence >= 0.02:  # Lowered threshold for more interesting results
+                                        detection_results['detections'].append({
+                                            'bbox': [float(x_center), float(y_center), float(width), float(height)],
+                                            'confidence': confidence,
+                                            'class': int(class_id)
+                                        })
+                                        detection_results['confidence_scores'].append(confidence)
                 
                 detection_results['total_cyclones'] = len(detection_results['detections'])
                 
@@ -108,7 +110,15 @@ class AstroAlert:
                     detection_results['avg_confidence'] = 0
                     detection_results['max_confidence'] = 0
             
+            # Add more detailed detection analysis
+            detection_results['detection_quality'] = self._assess_detection_quality(detection_results)
+            
             print(f"Detected {detection_results['total_cyclones']} cyclones")
+            if detection_results['total_cyclones'] > 0:
+                print(f"Average Confidence: {detection_results['avg_confidence']:.3f}")
+                print(f"Max Confidence: {detection_results['max_confidence']:.3f}")
+                print(f"Detection Quality: {detection_results['detection_quality']}")
+                
             return detection_results
             
         except Exception as e:
@@ -119,6 +129,42 @@ class AstroAlert:
                 'detections': [],
                 'total_cyclones': 0
             }
+
+    def _assess_detection_quality(self, detection_results: Dict) -> str:
+        """
+        Assess the quality of cyclone detections based on confidence scores
+        
+        Args:
+            detection_results: Results from cyclone detection
+            
+        Returns:
+            Quality assessment string
+        """
+        total = detection_results.get('total_cyclones', 0)
+        if total == 0:
+            return 'NO_DETECTION'
+            
+        max_conf = detection_results.get('max_confidence', 0)
+        avg_conf = detection_results.get('avg_confidence', 0)
+        
+        # Count high confidence detections
+        high_conf_count = sum(1 for conf in detection_results.get('confidence_scores', []) if conf > 0.5)
+        medium_conf_count = sum(1 for conf in detection_results.get('confidence_scores', []) if 0.2 <= conf <= 0.5)
+        
+        if max_conf > 0.8:
+            return 'EXCELLENT'
+        elif max_conf > 0.6:
+            return 'GOOD'
+        elif max_conf > 0.4:
+            return 'MODERATE'
+        elif high_conf_count > 0:
+            return 'FAIR'
+        elif medium_conf_count >= 3:
+            return 'WEAK_MULTIPLE'
+        elif total >= 10:
+            return 'WEAK_MANY'
+        else:
+            return 'POOR'
 
     def calculate_astrology_risk(self, date_time: datetime.datetime, latitude: float, longitude: float) -> Dict:
         """
@@ -168,14 +214,29 @@ class AstroAlert:
         
         # Base risk from AI detection
         ai_risk = 0
-        if detection_results.get('total_cyclones', 0) > 0:
-            avg_conf = detection_results.get('avg_confidence', 0)
-            if avg_conf > 0.8:
-                ai_risk = 30
-            elif avg_conf > 0.5:
-                ai_risk = 20
-            elif avg_conf > 0.2:
-                ai_risk = 10
+        total_cyclones = detection_results.get('total_cyclones', 0)
+        avg_conf = detection_results.get('avg_confidence', 0)
+        max_conf = detection_results.get('max_confidence', 0)
+        detection_quality = detection_results.get('detection_quality', 'NO_DETECTION')
+        
+        if total_cyclones > 0:
+            # Improved AI risk calculation using detection quality
+            if detection_quality == 'EXCELLENT':
+                ai_risk = 45
+            elif detection_quality == 'GOOD':
+                ai_risk = 35
+            elif detection_quality == 'MODERATE':
+                ai_risk = 25
+            elif detection_quality == 'FAIR':
+                ai_risk = 18
+            elif detection_quality == 'WEAK_MULTIPLE':
+                ai_risk = 12
+            elif detection_quality == 'WEAK_MANY':
+                ai_risk = 8
+            elif detection_quality == 'POOR':
+                ai_risk = 3
+            else:
+                ai_risk = 0
         
         # Astrology risk
         astrology_risk = astrology_results.get('vrs_analysis', {}).get('vrs_score', 0)

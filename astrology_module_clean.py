@@ -72,8 +72,10 @@ class VedicAstrologyAnalyzer:
             try:
                 # Calculate planetary position
                 planet_pos = swe.calc_ut(jd, planet_id)
-                if planet_pos[0] == 0:  # Success
-                    longitude_deg = planet_pos[1][0]  # Longitude
+                # Swiss Ephemeris returns ((coordinates), flag)
+                # Flag values: 0-255 are OK, negative values indicate errors
+                if len(planet_pos) >= 2 and planet_pos[1] >= 0:  # Success check
+                    longitude_deg = planet_pos[0][0]  # First coordinate is longitude
                     planetary_data[planet_name] = {
                         'longitude': longitude_deg,
                         'sign': self._get_zodiac_sign(longitude_deg),
@@ -88,7 +90,11 @@ class VedicAstrologyAnalyzer:
         
         # Calculate ascendant
         try:
-            ascendant = swe.house_pos(jd, latitude, longitude)[0]
+            houses_result = swe.houses(jd, latitude, longitude, b'P')  # Placidus houses
+            if len(houses_result) >= 2:
+                ascendant = houses_result[1][0]  # First ascendant
+            else:
+                ascendant = 0
         except:
             ascendant = 0
         
@@ -166,7 +172,7 @@ class VedicAstrologyAnalyzer:
             sun = planets.get('Sun')
             if sun:
                 sun_sign = sun['sign']
-                if sun_sign in ['Cancer', 'Scorpio']:
+                if sun_sign in ['Cancer', 'Scorpio', 'Pisces']:
                     vrs_score += 15
                     risk_factors.append(f"Sun in water sign {sun_sign} (+15)")
             
@@ -182,7 +188,7 @@ class VedicAstrologyAnalyzer:
             mars = planets.get('Mars')
             if mars:
                 mars_sign = mars['sign']
-                if mars_sign in ['Cancer', 'Scorpio']:
+                if mars_sign in ['Cancer', 'Scorpio', 'Pisces']:
                     vrs_score += 20
                     risk_factors.append(f"Mars in water sign {mars_sign} (+20)")
             
@@ -190,7 +196,7 @@ class VedicAstrologyAnalyzer:
             saturn = planets.get('Saturn')
             if saturn:
                 saturn_sign = saturn['sign']
-                if saturn_sign in ['Cancer', 'Scorpio']:
+                if saturn_sign in ['Cancer', 'Scorpio', 'Pisces']:
                     vrs_score += 18
                     risk_factors.append(f"Saturn in water sign {saturn_sign} (+18)")
             

@@ -13,6 +13,7 @@ const uploadText = document.querySelector('.upload-text');
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
+    checkServerConnection();
 });
 
 function initializeApp() {
@@ -27,6 +28,61 @@ function initializeApp() {
 
     // Add loading step animation
     setupLoadingAnimation();
+}
+
+async function checkServerConnection() {
+    try {
+        const response = await fetch('/api/health');
+        const data = await response.json();
+        
+        if (data.status === 'healthy' && data.astroalert_ready) {
+            console.log('✅ Server connection successful - Real backend ready!');
+            showConnectionStatus(true);
+        } else {
+            console.log('⚠️ Server connected but AstroAlert not ready');
+            showConnectionStatus(false);
+        }
+    } catch (error) {
+        console.log('🔄 Server not available - Using demo mode');
+        showConnectionStatus(false, true);
+    }
+}
+
+function showConnectionStatus(connected, demoMode = false) {
+    const statusElement = document.createElement('div');
+    statusElement.className = 'connection-status';
+    statusElement.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    `;
+    
+    if (connected) {
+        statusElement.textContent = '✅ Real Backend Connected';
+        statusElement.style.background = 'rgba(46, 204, 113, 0.9)';
+        statusElement.style.color = 'white';
+    } else if (demoMode) {
+        statusElement.textContent = '🎭 Demo Mode - Start server for real analysis';
+        statusElement.style.background = 'rgba(243, 156, 18, 0.9)';
+        statusElement.style.color = 'white';
+    } else {
+        statusElement.textContent = '⚠️ Backend Issue';
+        statusElement.style.background = 'rgba(231, 76, 60, 0.9)';
+        statusElement.style.color = 'white';
+    }
+    
+    document.body.appendChild(statusElement);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+        statusElement.remove();
+    }, 5000);
 }
 
 function handleImageUpload(event) {
@@ -82,19 +138,54 @@ async function performAnalysis(data) {
         hideAllSections();
         showLoadingSection();
         
-        // Simulate analysis steps
-        await simulateAnalysisSteps();
+        // Simulate analysis steps (keep for visual effect)
+        const analysisStepsPromise = simulateAnalysisSteps();
         
-        // Generate mock results (in real implementation, this would call your Python backend)
-        const results = await generateMockResults(data);
+        // Make real API call to Flask backend
+        const formData = new FormData();
+        formData.append('image', data.image);
+        formData.append('latitude', data.latitude);
+        formData.append('longitude', data.longitude);
+        formData.append('datetime', data.datetime);
         
-        hideLoadingSection();
-        displayResults(results);
+        console.log('📡 Sending request to backend API...');
+        
+        const response = await fetch('/api/analyze', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const results = await response.json();
+        
+        // Wait for loading animation to complete
+        await analysisStepsPromise;
+        
+        if (results.success) {
+            console.log('✅ Analysis completed successfully:', results);
+            hideLoadingSection();
+            displayRealResults(results);
+        } else {
+            console.error('❌ Analysis failed:', results.error);
+            hideLoadingSection();
+            showError(results.error || 'Analysis failed. Please try again.');
+        }
         
     } catch (error) {
-        console.error('Analysis error:', error);
-        hideLoadingSection();
-        showError('An error occurred during analysis. Please try again.');
+        console.error('❌ Network or parsing error:', error);
+        console.log('🔄 Falling back to demo mode...');
+        
+        // Fallback to mock analysis
+        try {
+            const mockResults = await generateMockResults(data);
+            hideLoadingSection();
+            displayResults(mockResults);
+            
+            // Show demo mode indicator
+            showConnectionStatus(false, true);
+        } catch (mockError) {
+            hideLoadingSection();
+            showError('Analysis failed. Please check your internet connection and try again.');
+        }
     }
 }
 
@@ -257,7 +348,78 @@ function generateMockCombinedResults(detection, astrology) {
     };
 }
 
+function displayRealResults(apiResponse) {
+    // Extract results from API response
+    const results = apiResponse.results;
+    
+    // Display AI Detection Results
+    const detection = results.detection;
+    document.getElementById('cyclonesCount').textContent = detection.total_cyclones || 0;
+    document.getElementById('avgConfidence').textContent = `${Math.round((detection.avg_confidence || 0) * 100)}%`;
+    document.getElementById('aiRiskScore').textContent = results.combined.ai_detection?.ai_risk_score || 0;
+    
+    // Display Astrology Results
+    const astrology = results.astrology.vrs_analysis;
+    document.getElementById('vrsScore').textContent = `${astrology.vrs_score}/100`;
+    const astrologyRiskElement = document.getElementById('astrologyRisk');
+    astrologyRiskElement.textContent = astrology.risk_level;
+    astrologyRiskElement.className = `metric-value risk-badge ${astrology.risk_level}`;
+    
+    // Display Risk Factors
+    const riskFactorsContainer = document.getElementById('riskFactors');
+    riskFactorsContainer.innerHTML = '';
+    if (astrology.risk_factors && astrology.risk_factors.length > 0) {
+        astrology.risk_factors.forEach(factor => {
+            const factorElement = document.createElement('div');
+            factorElement.className = 'risk-factor';
+            factorElement.textContent = factor;
+            riskFactorsContainer.appendChild(factorElement);
+        });
+    } else {
+        const noFactorsElement = document.createElement('div');
+        noFactorsElement.className = 'risk-factor';
+        noFactorsElement.textContent = 'No significant risk factors detected';
+        riskFactorsContainer.appendChild(noFactorsElement);
+    }
+    
+    // Display Combined Assessment
+    const combined = results.combined.combined_assessment;
+    document.getElementById('combinedRiskScore').textContent = Math.round(combined.combined_risk_score);
+    const finalRiskElement = document.getElementById('finalRiskLevel');
+    finalRiskElement.textContent = combined.final_risk_level;
+    finalRiskElement.className = `final-risk-level ${combined.final_risk_level}`;
+    document.getElementById('actionText').textContent = combined.action_required;
+    
+    // Update risk circle color based on score
+    updateRiskCircleColor(combined.combined_risk_score);
+    
+    // Display Recommendations
+    const recommendationsContainer = document.getElementById('recommendationsList');
+    recommendationsContainer.innerHTML = '';
+    if (results.combined.recommendations) {
+        results.combined.recommendations.forEach(recommendation => {
+            const recElement = document.createElement('div');
+            recElement.className = 'recommendation';
+            recElement.innerHTML = `<div class="recommendation-text">${recommendation}</div>`;
+            recommendationsContainer.appendChild(recElement);
+        });
+    }
+    
+    // Show results section
+    showResultsSection();
+    
+    // Add animations
+    setTimeout(() => {
+        document.querySelectorAll('.result-card').forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('slide-up');
+            }, index * 100);
+        });
+    }, 100);
+}
+
 function displayResults(results) {
+    // Keep the old mock function for fallback
     // Display AI Detection Results
     document.getElementById('cyclonesCount').textContent = results.detection.total_cyclones;
     document.getElementById('avgConfidence').textContent = `${Math.round(results.detection.avg_confidence * 100)}%`;
@@ -455,3 +617,339 @@ const rippleCSS = `
 const style = document.createElement('style');
 style.textContent = rippleCSS;
 document.head.appendChild(style);
+
+// ==========================================
+// CHATBOT FUNCTIONALITY
+// ==========================================
+
+// Chatbot DOM elements
+const chatbotContainer = document.getElementById('chatbotContainer');
+const chatbotHeader = document.getElementById('chatbotHeader');
+const chatbotToggle = document.getElementById('chatbotToggle');
+const chatbotToggleIcon = document.getElementById('chatbotToggleIcon');
+const chatbotStatus = document.getElementById('chatbotStatus');
+const clearChatBtn = document.getElementById('clearChatBtn');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const sendChatBtn = document.getElementById('sendChatBtn');
+const charCount = document.getElementById('charCount');
+const chatInputStatus = document.getElementById('chatInputStatus');
+const suggestionsList = document.getElementById('suggestionsList');
+
+// Chatbot state
+let chatbotMinimized = true;
+let chatbotAvailable = false;
+let isTyping = false;
+
+// Initialize chatbot
+document.addEventListener('DOMContentLoaded', function() {
+    initializeChatbot();
+});
+
+async function initializeChatbot() {
+    // Set initial state
+    chatbotContainer.classList.add('minimized');
+    
+    // Add event listeners
+    chatbotHeader.addEventListener('click', toggleChatbot);
+    chatbotToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleChatbot();
+    });
+    
+    clearChatBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearChatHistory();
+    });
+    
+    chatInput.addEventListener('input', updateCharCount);
+    chatInput.addEventListener('keypress', handleChatInputKeypress);
+    sendChatBtn.addEventListener('click', sendMessage);
+    
+    // Check chatbot availability
+    await checkChatbotStatus();
+    
+    // Load suggested questions
+    await loadSuggestedQuestions();
+}
+
+async function checkChatbotStatus() {
+    try {
+        const response = await fetch('/api/chat/status');
+        const data = await response.json();
+        
+        chatbotAvailable = data.available;
+        
+        if (data.available) {
+            chatbotStatus.textContent = 'Online • Ready to help!';
+            chatbotStatus.style.color = '#27ae60';
+            chatInputStatus.textContent = 'Ready';
+            chatInputStatus.className = 'chat-status ready';
+            
+            console.log('🤖 CycloneBot is online!');
+        } else {
+            chatbotStatus.textContent = 'Offline • Check configuration';
+            chatbotStatus.style.color = '#e74c3c';
+            chatInputStatus.textContent = 'Unavailable';
+            chatInputStatus.className = 'chat-status error';
+            
+            // Disable chat input
+            chatInput.disabled = true;
+            sendChatBtn.disabled = true;
+            
+            console.log('🤖 CycloneBot is offline:', data.message);
+        }
+    } catch (error) {
+        console.error('Error checking chatbot status:', error);
+        chatbotStatus.textContent = 'Connection Error';
+        chatbotStatus.style.color = '#e74c3c';
+        chatInputStatus.textContent = 'Error';
+        chatInputStatus.className = 'chat-status error';
+        
+        chatInput.disabled = true;
+        sendChatBtn.disabled = true;
+    }
+}
+
+function toggleChatbot() {
+    chatbotMinimized = !chatbotMinimized;
+    
+    if (chatbotMinimized) {
+        chatbotContainer.classList.add('minimized');
+        chatbotToggleIcon.textContent = '💬';
+    } else {
+        chatbotContainer.classList.remove('minimized');
+        chatbotToggleIcon.textContent = '🔽';
+        
+        // Focus on chat input when opened
+        setTimeout(() => {
+            if (!chatInput.disabled) {
+                chatInput.focus();
+            }
+        }, 300);
+    }
+}
+
+function updateCharCount() {
+    const currentLength = chatInput.value.length;
+    charCount.textContent = `${currentLength}/500`;
+    
+    if (currentLength > 450) {
+        charCount.style.color = '#e74c3c';
+    } else if (currentLength > 350) {
+        charCount.style.color = '#f39c12';
+    } else {
+        charCount.style.color = '#7f8c8d';
+    }
+}
+
+function handleChatInputKeypress(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+    }
+}
+
+async function sendMessage() {
+    const message = chatInput.value.trim();
+    
+    if (!message || !chatbotAvailable || isTyping) {
+        return;
+    }
+    
+    // Add user message to chat
+    addMessage(message, 'user');
+    
+    // Clear input
+    chatInput.value = '';
+    updateCharCount();
+    
+    // Show typing indicator
+    showTypingIndicator();
+    
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: message })
+        });
+        
+        const data = await response.json();
+        
+        // Hide typing indicator
+        hideTypingIndicator();
+        
+        if (data.success) {
+            addMessage(data.response, 'bot', data.category);
+            
+            // Update suggested questions after getting response
+            await loadSuggestedQuestions();
+        } else {
+            addMessage('Sorry, I encountered an error. Please try again.', 'bot', 'error');
+        }
+        
+    } catch (error) {
+        console.error('Chat error:', error);
+        hideTypingIndicator();
+        addMessage('Connection error. Please check your internet connection and try again.', 'bot', 'error');
+    }
+}
+
+function addMessage(content, sender, category = 'general') {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message ${category}`;
+    
+    const messageContent = document.createElement('div');
+    messageContent.className = 'message-content';
+    
+    // Handle multi-paragraph content
+    const paragraphs = content.split('\n\n').filter(p => p.trim());
+    if (paragraphs.length > 1) {
+        paragraphs.forEach(paragraph => {
+            const p = document.createElement('p');
+            p.textContent = paragraph.trim();
+            messageContent.appendChild(p);
+        });
+    } else {
+        const p = document.createElement('p');
+        p.textContent = content;
+        messageContent.appendChild(p);
+    }
+    
+    messageDiv.appendChild(messageContent);
+    chatMessages.appendChild(messageDiv);
+    
+    // Scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Add animation
+    messageDiv.style.opacity = '0';
+    messageDiv.style.transform = 'translateY(10px)';
+    
+    setTimeout(() => {
+        messageDiv.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        messageDiv.style.opacity = '1';
+        messageDiv.style.transform = 'translateY(0)';
+    }, 50);
+}
+
+function showTypingIndicator() {
+    isTyping = true;
+    
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message bot-message';
+    typingDiv.id = 'typingIndicator';
+    
+    const typingContent = document.createElement('div');
+    typingContent.className = 'message-content chatbot-typing';
+    
+    const typingDots = document.createElement('div');
+    typingDots.className = 'typing-dots';
+    
+    for (let i = 0; i < 3; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'typing-dot';
+        typingDots.appendChild(dot);
+    }
+    
+    typingContent.appendChild(typingDots);
+    typingDiv.appendChild(typingContent);
+    chatMessages.appendChild(typingDiv);
+    
+    // Scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Update status
+    chatInputStatus.textContent = 'Bot is typing...';
+    chatInputStatus.className = 'chat-status sending';
+    
+    // Disable input
+    sendChatBtn.disabled = true;
+}
+
+function hideTypingIndicator() {
+    isTyping = false;
+    
+    const typingIndicator = document.getElementById('typingIndicator');
+    if (typingIndicator) {
+        typingIndicator.remove();
+    }
+    
+    // Update status
+    chatInputStatus.textContent = 'Ready';
+    chatInputStatus.className = 'chat-status ready';
+    
+    // Enable input
+    sendChatBtn.disabled = false;
+}
+
+async function clearChatHistory() {
+    try {
+        const response = await fetch('/api/chat/clear', {
+            method: 'POST'
+        });
+        
+        if (response.ok) {
+            // Clear chat messages (keep welcome message)
+            const welcomeMessage = chatMessages.querySelector('.welcome-message');
+            chatMessages.innerHTML = '';
+            if (welcomeMessage) {
+                chatMessages.appendChild(welcomeMessage);
+            }
+            
+            console.log('🗑️ Chat history cleared');
+        }
+    } catch (error) {
+        console.error('Error clearing chat history:', error);
+    }
+}
+
+async function loadSuggestedQuestions() {
+    try {
+        const response = await fetch('/api/chat/suggestions');
+        const data = await response.json();
+        
+        if (data.success && data.suggestions) {
+            displaySuggestions(data.suggestions);
+        }
+    } catch (error) {
+        console.error('Error loading suggestions:', error);
+        // Show default suggestions
+        displaySuggestions([
+            'What is a tropical cyclone?',
+            'How should I prepare for a cyclone?',
+            'What do the risk levels mean?',
+            'How does the VRS score work?'
+        ]);
+    }
+}
+
+function displaySuggestions(suggestions) {
+    suggestionsList.innerHTML = '';
+    
+    suggestions.forEach(suggestion => {
+        const suggestionBtn = document.createElement('button');
+        suggestionBtn.className = 'suggestion-item';
+        suggestionBtn.textContent = suggestion;
+        suggestionBtn.addEventListener('click', () => {
+            if (!chatbotAvailable || isTyping) return;
+            
+            chatInput.value = suggestion;
+            updateCharCount();
+            
+            if (!chatbotMinimized) {
+                chatInput.focus();
+            } else {
+                // Auto-open chatbot and send message
+                toggleChatbot();
+                setTimeout(() => {
+                    sendMessage();
+                }, 300);
+            }
+        });
+        
+        suggestionsList.appendChild(suggestionBtn);
+    });
+}

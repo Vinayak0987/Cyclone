@@ -1,0 +1,85 @@
+{
+  "analysis_id": "astroalert_20250910_013851",
+  "analysis_timestamp": "2025-09-10T01:38:51.422716",
+  "input_data": {
+    "image_path": "temp_uploads\\20250910_013841_batsirai.8.jpg",
+    "location": {
+      "latitude": 19.076,
+      "longitude": 72.8777
+    },
+    "date_time": "2025-09-10T01:38:00"
+  },
+  "results": {
+    "detection": {
+      "image_path": "temp_uploads\\20250910_013841_batsirai.8.jpg",
+      "detections": [],
+      "total_cyclones": 0,
+      "confidence_scores": [],
+      "detection_time": "2025-09-10T01:38:51.419407",
+      "avg_confidence": 0,
+      "max_confidence": 0,
+      "detection_quality": "NO_DETECTION"
+    },
+    "astrology": {
+      "prediction_time": "2025-09-10T01:38:00",
+      "location": {
+        "latitude": 19.076,
+        "longitude": 72.8777
+      },
+      "planetary_positions": {
+        "planets": {
+          "Sun": null,
+          "Moon": null,
+          "Mercury": null,
+          "Venus": null,
+          "Mars": null,
+          "Jupiter": null,
+          "Saturn": null,
+          "Rahu": null
+        },
+        "tithi": "Unknown",
+        "ascendant": 0,
+        "julian_day": 2460928.5680555557,
+        "date_time": "2025-09-10T01:38:00",
+        "location": {
+          "latitude": 19.076,
+          "longitude": 72.8777
+        }
+      },
+      "vrs_analysis": {
+        "vrs_score": 0,
+        "risk_level": "LOW",
+        "risk_factors": [],
+        "total_factors": 0,
+        "analysis": "Low cyclone risk detected (VRS: 0.0/100). Planetary positions are generally favorable. Standard weather monitoring recommended."
+      },
+      "summary": "Cyclone Risk: LOW (VRS: 0.0/100)"
+    },
+    "combined": {
+      "timestamp": "2025-09-10T01:38:51.422314",
+      "ai_detection": {
+        "cyclones_detected": 0,
+        "average_confidence": 0,
+        "ai_risk_score": 0
+      },
+      "astrology_analysis": {
+        "vrs_score": 0,
+        "risk_level": "LOW",
+        "risk_factors": []
+      },
+      "combined_assessment": {
+        "combined_risk_score": 0.0,
+        "final_risk_level": "LOW",
+        "action_required": "Low risk - standard monitoring recommended",
+        "confidence": "Medium"
+      },
+      "recommendations": [
+        "\ud83d\udcca Continue standard weather monitoring",
+        "\ud83d\udcf1 Maintain public awareness programs",
+        "\ud83c\udfe0 Regular preparedness reviews",
+        "\ud83d\udce1 Monitor satellite imagery",
+        "\ud83d\udccb Document conditions for future reference"
+      ]
+    }
+  }
+}
