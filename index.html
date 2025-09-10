@@ -65,6 +65,31 @@
                             <input type="datetime-local" id="datetime" name="datetime" required>
                         </div>
 
+                        <!-- Enhanced Analysis Toggle -->
+                        <div class="form-group enhanced-toggle-group">
+                            <div class="toggle-container">
+                                <label class="toggle-label" for="enhancedToggle">
+                                    <span class="toggle-text">
+                                        <span class="toggle-icon">🧠</span>
+                                        <span class="toggle-title">Enhanced Analysis</span>
+                                        <span class="toggle-subtitle">Advanced ML meteorological analysis (95% accuracy)</span>
+                                    </span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="enhancedToggle" name="enhanced" class="toggle-input">
+                                        <span class="toggle-slider"></span>
+                                    </div>
+                                </label>
+                                <div class="enhanced-features" id="enhancedFeatures">
+                                    <div class="feature-list">
+                                        <div class="feature-item">👁️ Cyclone eye detection & clarity</div>
+                                        <div class="feature-item">📊 Intensity classification (Cat 1-5)</div>
+                                        <div class="feature-item">🌀 Advanced meteorological features</div>
+                                        <div class="feature-item">⚖️ Enhanced risk scoring</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Submit Button -->
                         <button type="submit" class="submit-btn" id="analyzeBtn">
                             <span class="btn-icon">🔍</span>
@@ -81,10 +106,18 @@
                         <div class="spinner"></div>
                         <h3>Analyzing...</h3>
                         <p>Processing satellite imagery and calculating risk assessment</p>
-                        <div class="loading-steps">
+                        <div class="loading-steps" id="loadingSteps">
                             <div class="step active">🤖 AI Detection</div>
                             <div class="step">🔮 Astrology Analysis</div>
                             <div class="step">📊 Risk Assessment</div>
+                        </div>
+                        <div class="enhanced-loading-steps hidden" id="enhancedLoadingSteps">
+                            <div class="step active">🎯 YOLO Detection</div>
+                            <div class="step">🧠 ML Analysis</div>
+                            <div class="step">👁️ Eye Detection</div>
+                            <div class="step">📊 Intensity Classification</div>
+                            <div class="step">🔮 Astrology</div>
+                            <div class="step">⚖️ Enhanced Risk</div>
                         </div>
                     </div>
                 </div>
@@ -137,11 +170,47 @@
                         </div>
                     </div>
 
+                    <!-- Enhanced Meteorological Results (shown only with enhanced analysis) -->
+                    <div class="card result-card enhanced-results hidden" id="enhancedResultsCard">
+                        <h3 class="card-title">
+                            <span class="icon">🧠</span>
+                            Enhanced Meteorological Analysis
+                        </h3>
+                        <div id="enhancedResults" class="result-content">
+                            <div class="enhanced-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Intensity Classification:</span>
+                                    <span id="intensityClassification" class="metric-value intensity-badge">Unknown</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">ML Confidence:</span>
+                                    <span id="mlConfidence" class="metric-value">0%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Eye Detection:</span>
+                                    <span id="eyeDetection" class="metric-value eye-badge">Not Detected</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Eye Clarity:</span>
+                                    <span id="eyeClarity" class="metric-value">0%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Organization:</span>
+                                    <span id="structuralOrganization" class="metric-value">Unknown</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Development Stage:</span>
+                                    <span id="developmentStage" class="metric-value">Unknown</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Combined Assessment -->
                     <div class="card result-card combined-assessment">
                         <h3 class="card-title">
                             <span class="icon">⚡</span>
-                            Combined Assessment
+                            <span id="combinedAssessmentTitle">Combined Assessment</span>
                         </h3>
                         <div id="combinedResults" class="result-content">
                             <div class="risk-score-display">

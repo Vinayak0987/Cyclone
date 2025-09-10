@@ -326,7 +326,7 @@ class AstroAlert:
         return recommendations
 
     def run_complete_analysis(self, image_path: str, latitude: float, longitude: float, 
-                             date_time: Optional[datetime.datetime] = None) -> Dict:
+                             date_time: Optional[datetime.datetime] = None, enhanced: bool = False) -> Dict:
         """
         Run complete AstroAlert analysis
         
@@ -335,12 +335,25 @@ class AstroAlert:
             latitude: Location latitude
             longitude: Location longitude
             date_time: Date and time (defaults to current time)
+            enhanced: Whether to use enhanced meteorological analysis (requires additional models)
             
         Returns:
             Complete analysis results
         """
         if date_time is None:
             date_time = datetime.datetime.now()
+        
+        # Try to run enhanced analysis if requested
+        if enhanced:
+            try:
+                from enhanced_analysis.enhanced_astroalert import EnhancedAstroAlert
+                enhanced_system = EnhancedAstroAlert(self.model_path)
+                return enhanced_system.run_enhanced_complete_analysis(image_path, latitude, longitude, date_time)
+            except ImportError:
+                print("⚠️ Enhanced analysis not available - falling back to standard analysis")
+                print("💡 Install required packages: pip install scikit-learn joblib pandas")
+            except Exception as e:
+                print(f"⚠️ Enhanced analysis failed: {e} - falling back to standard analysis")
         
         print("Starting Complete AstroAlert Analysis")
         print("=" * 60)
@@ -358,6 +371,7 @@ class AstroAlert:
         final_report = {
             'analysis_id': f"astroalert_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}",
             'analysis_timestamp': datetime.datetime.now().isoformat(),
+            'analysis_type': 'standard_astroalert',
             'input_data': {
                 'image_path': image_path,
                 'location': {'latitude': latitude, 'longitude': longitude},

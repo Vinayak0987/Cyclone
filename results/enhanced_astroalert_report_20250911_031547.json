@@ -1,0 +1,4293 @@
+{
+  "analysis_id": "enhanced_astroalert_20250911_031547",
+  "analysis_timestamp": "2025-09-11T03:15:47.008133",
+  "analysis_type": "enhanced_astroalert",
+  "input_data": {
+    "image_path": "temp_uploads\\20250911_031538_1.jpg",
+    "location": {
+      "latitude": 19.076,
+      "longitude": 72.8777
+    },
+    "date_time": "2025-09-11T03:11:00"
+  },
+  "results": {
+    "yolo_detection": {
+      "image_path": "temp_uploads\\20250911_031538_1.jpg",
+      "detections": [
+        {
+          "bbox": [
+            0.651652,
+            0.498529,
+            0.696697,
+            0.997059
+          ],
+          "confidence": 0.0200279,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.0825826,
+            0.15,
+            0.165165,
+            0.3
+          ],
+          "confidence": 0.0200578,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.600601,
+            0.779412,
+            0.33033,
+            0.152941
+          ],
+          "confidence": 0.0201119,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.403904,
+            0.7,
+            0.411411,
+            0.282353
+          ],
+          "confidence": 0.0202058,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.03003,
+            0.1,
+            0.0600601,
+            0.0470588
+          ],
+          "confidence": 0.0202108,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.897898,
+            0.308824,
+            0.204204,
+            0.205882
+          ],
+          "confidence": 0.0203127,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.569069,
+            0.236765,
+            0.219219,
+            0.320588
+          ],
+          "confidence": 0.0204393,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.294294,
+            0.841176,
+            0.306306,
+            0.141176
+          ],
+          "confidence": 0.0205364,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.226727,
+            0.211765,
+            0.357357,
+            0.358824
+          ],
+          "confidence": 0.0206477,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.472973,
+            0.336765,
+            0.321321,
+            0.367647
+          ],
+          "confidence": 0.0208003,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.0315315,
+            0.745588,
+            0.00900901,
+            0.0911765
+          ],
+          "confidence": 0.0209106,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.357357,
+            0.227941,
+            0.402402,
+            0.432353
+          ],
+          "confidence": 0.0209644,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.581081,
+            0.0852941,
+            0.345345,
+            0.158824
+          ],
+          "confidence": 0.0211301,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.755255,
+            0.794118,
+            0.279279,
+            0.147059
+          ],
+          "confidence": 0.0212462,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.668168,
+            0.688235,
+            0.231231,
+            0.417647
+          ],
+          "confidence": 0.0213267,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.567568,
+            0.888235,
+            0.456456,
+            0.223529
+          ],
+          "confidence": 0.0216824,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.776276,
+            0.792647,
+            0.447447,
+            0.0617647
+          ],
+          "confidence": 0.0217308,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.460961,
+            0.694118,
+            0.225225,
+            0.441176
+          ],
+          "confidence": 0.0219743,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.220721,
+            0.0676471,
+            0.345345,
+            0.135294
+          ],
+          "confidence": 0.0223367,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.801802,
+            0.839706,
+            0.396396,
+            0.0617647
+          ],
+          "confidence": 0.0224172,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.0855856,
+            0.411765,
+            0.141141,
+            0.494118
+          ],
+          "confidence": 0.0224232,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.033033,
+            0.248529,
+            0.0660661,
+            0.05
+          ],
+          "confidence": 0.0224827,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.246246,
+            0.517647,
+            0.168168,
+            0.235294
+          ],
+          "confidence": 0.0225686,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.897898,
+            0.167647,
+            0.204204,
+            0.229412
+          ],
+          "confidence": 0.0226065,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.183183,
+            0.677941,
+            0.366366,
+            0.485294
+          ],
+          "confidence": 0.0227627,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.301802,
+            0.75,
+            0.309309,
+            0.370588
+          ],
+          "confidence": 0.0240973,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.175676,
+            0.394118,
+            0.351351,
+            0.4
+          ],
+          "confidence": 0.0244056,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.543544,
+            0.736765,
+            0.216216,
+            0.185294
+          ],
+          "confidence": 0.024826,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.512012,
+            0.214706,
+            0.447447,
+            0.364706
+          ],
+          "confidence": 0.0251922,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.268769,
+            0.629412,
+            0.429429,
+            0.729412
+          ],
+          "confidence": 0.0259731,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.66967,
+            0.151471,
+            0.600601,
+            0.302941
+          ],
+          "confidence": 0.0266159,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.887387,
+            0.611765,
+            0.225225,
+            0.182353
+          ],
+          "confidence": 0.0267997,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.681682,
+            0.910294,
+            0.438438,
+            0.179412
+          ],
+          "confidence": 0.0269606,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.106607,
+            0.075,
+            0.213213,
+            0.15
+          ],
+          "confidence": 0.0271822,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.138138,
+            0.510294,
+            0.276276,
+            0.602941
+          ],
+          "confidence": 0.027223,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.822823,
+            0.726471,
+            0.234234,
+            0.382353
+          ],
+          "confidence": 0.0272778,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.708709,
+            0.560294,
+            0.582583,
+            0.461765
+          ],
+          "confidence": 0.0275623,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.243243,
+            0.811765,
+            0.162162,
+            0.376471
+          ],
+          "confidence": 0.0282822,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.165165,
+            0.761765,
+            0.27027,
+            0.294118
+          ],
+          "confidence": 0.0289838,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.42042,
+            0.827941,
+            0.468468,
+            0.285294
+          ],
+          "confidence": 0.0292246,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.190691,
+            0.566176,
+            0.285285,
+            0.297059
+          ],
+          "confidence": 0.0293853,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.624625,
+            0.811765,
+            0.576577,
+            0.376471
+          ],
+          "confidence": 0.0305445,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.27027,
+            0.325,
+            0.540541,
+            0.638235
+          ],
+          "confidence": 0.0308544,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.15015,
+            0.0558824,
+            0.3003,
+            0.111765
+          ],
+          "confidence": 0.0308692,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.897898,
+            0.413235,
+            0.204204,
+            0.291176
+          ],
+          "confidence": 0.0311915,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.764264,
+            0.716176,
+            0.471471,
+            0.261765
+          ],
+          "confidence": 0.0322976,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.56006,
+            0.694118,
+            0.297297,
+            0.311765
+          ],
+          "confidence": 0.034062,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.725225,
+            0.839706,
+            0.315315,
+            0.320588
+          ],
+          "confidence": 0.0357508,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.864865,
+            0.861765,
+            0.27027,
+            0.276471
+          ],
+          "confidence": 0.0365684,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.297297,
+            0.522059,
+            0.318318,
+            0.291176
+          ],
+          "confidence": 0.0369154,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.617117,
+            0.425,
+            0.399399,
+            0.444118
+          ],
+          "confidence": 0.0381066,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.786787,
+            0.410294,
+            0.426426,
+            0.426471
+          ],
+          "confidence": 0.0406182,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.190691,
+            0.133824,
+            0.381381,
+            0.267647
+          ],
+          "confidence": 0.041017,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.430931,
+            0.483824,
+            0.459459,
+            0.544118
+          ],
+          "confidence": 0.0429101,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.825826,
+            0.814706,
+            0.156156,
+            0.370588
+          ],
+          "confidence": 0.0468446,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.767267,
+            0.811765,
+            0.465465,
+            0.235294
+          ],
+          "confidence": 0.0471234,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.866366,
+            0.516176,
+            0.267267,
+            0.332353
+          ],
+          "confidence": 0.0492199,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.677177,
+            0.285294,
+            0.465465,
+            0.347059
+          ],
+          "confidence": 0.0557865,
+          "class": 0
+        },
+        {
+          "bbox": [
+            0.572072,
+            0.651471,
+            0.561562,
+            0.491176
+          ],
+          "confidence": 0.0638714,
+          "class": 0
+        }
+      ],
+      "total_cyclones": 59,
+      "confidence_scores": [
+        0.0200279,
+        0.0200578,
+        0.0201119,
+        0.0202058,
+        0.0202108,
+        0.0203127,
+        0.0204393,
+        0.0205364,
+        0.0206477,
+        0.0208003,
+        0.0209106,
+        0.0209644,
+        0.0211301,
+        0.0212462,
+        0.0213267,
+        0.0216824,
+        0.0217308,
+        0.0219743,
+        0.0223367,
+        0.0224172,
+        0.0224232,
+        0.0224827,
+        0.0225686,
+        0.0226065,
+        0.0227627,
+        0.0240973,
+        0.0244056,
+        0.024826,
+        0.0251922,
+        0.0259731,
+        0.0266159,
+        0.0267997,
+        0.0269606,
+        0.0271822,
+        0.027223,
+        0.0272778,
+        0.0275623,
+        0.0282822,
+        0.0289838,
+        0.0292246,
+        0.0293853,
+        0.0305445,
+        0.0308544,
+        0.0308692,
+        0.0311915,
+        0.0322976,
+        0.034062,
+        0.0357508,
+        0.0365684,
+        0.0369154,
+        0.0381066,
+        0.0406182,
+        0.041017,
+        0.0429101,
+        0.0468446,
+        0.0471234,
+        0.0492199,
+        0.0557865,
+        0.0638714
+      ],
+      "detection_time": "2025-09-11T03:15:46.789062",
+      "avg_confidence": 0.028584013559322035,
+      "max_confidence": 0.0638714,
+      "detection_quality": "WEAK_MANY"
+    },
+    "enhanced_meteorological": {
+      "timestamp": "2025-09-11T03:15:46.792103",
+      "image_path": "temp_uploads\\20250911_031538_1.jpg",
+      "yolo_detections": {
+        "image_path": "temp_uploads\\20250911_031538_1.jpg",
+        "detections": [
+          {
+            "bbox": [
+              0.651652,
+              0.498529,
+              0.696697,
+              0.997059
+            ],
+            "confidence": 0.0200279,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.0825826,
+              0.15,
+              0.165165,
+              0.3
+            ],
+            "confidence": 0.0200578,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.600601,
+              0.779412,
+              0.33033,
+              0.152941
+            ],
+            "confidence": 0.0201119,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.403904,
+              0.7,
+              0.411411,
+              0.282353
+            ],
+            "confidence": 0.0202058,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.03003,
+              0.1,
+              0.0600601,
+              0.0470588
+            ],
+            "confidence": 0.0202108,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.897898,
+              0.308824,
+              0.204204,
+              0.205882
+            ],
+            "confidence": 0.0203127,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.569069,
+              0.236765,
+              0.219219,
+              0.320588
+            ],
+            "confidence": 0.0204393,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.294294,
+              0.841176,
+              0.306306,
+              0.141176
+            ],
+            "confidence": 0.0205364,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.226727,
+              0.211765,
+              0.357357,
+              0.358824
+            ],
+            "confidence": 0.0206477,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.472973,
+              0.336765,
+              0.321321,
+              0.367647
+            ],
+            "confidence": 0.0208003,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.0315315,
+              0.745588,
+              0.00900901,
+              0.0911765
+            ],
+            "confidence": 0.0209106,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.357357,
+              0.227941,
+              0.402402,
+              0.432353
+            ],
+            "confidence": 0.0209644,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.581081,
+              0.0852941,
+              0.345345,
+              0.158824
+            ],
+            "confidence": 0.0211301,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.755255,
+              0.794118,
+              0.279279,
+              0.147059
+            ],
+            "confidence": 0.0212462,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.668168,
+              0.688235,
+              0.231231,
+              0.417647
+            ],
+            "confidence": 0.0213267,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.567568,
+              0.888235,
+              0.456456,
+              0.223529
+            ],
+            "confidence": 0.0216824,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.776276,
+              0.792647,
+              0.447447,
+              0.0617647
+            ],
+            "confidence": 0.0217308,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.460961,
+              0.694118,
+              0.225225,
+              0.441176
+            ],
+            "confidence": 0.0219743,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.220721,
+              0.0676471,
+              0.345345,
+              0.135294
+            ],
+            "confidence": 0.0223367,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.801802,
+              0.839706,
+              0.396396,
+              0.0617647
+            ],
+            "confidence": 0.0224172,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.0855856,
+              0.411765,
+              0.141141,
+              0.494118
+            ],
+            "confidence": 0.0224232,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.033033,
+              0.248529,
+              0.0660661,
+              0.05
+            ],
+            "confidence": 0.0224827,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.246246,
+              0.517647,
+              0.168168,
+              0.235294
+            ],
+            "confidence": 0.0225686,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.897898,
+              0.167647,
+              0.204204,
+              0.229412
+            ],
+            "confidence": 0.0226065,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.183183,
+              0.677941,
+              0.366366,
+              0.485294
+            ],
+            "confidence": 0.0227627,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.301802,
+              0.75,
+              0.309309,
+              0.370588
+            ],
+            "confidence": 0.0240973,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.175676,
+              0.394118,
+              0.351351,
+              0.4
+            ],
+            "confidence": 0.0244056,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.543544,
+              0.736765,
+              0.216216,
+              0.185294
+            ],
+            "confidence": 0.024826,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.512012,
+              0.214706,
+              0.447447,
+              0.364706
+            ],
+            "confidence": 0.0251922,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.268769,
+              0.629412,
+              0.429429,
+              0.729412
+            ],
+            "confidence": 0.0259731,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.66967,
+              0.151471,
+              0.600601,
+              0.302941
+            ],
+            "confidence": 0.0266159,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.887387,
+              0.611765,
+              0.225225,
+              0.182353
+            ],
+            "confidence": 0.0267997,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.681682,
+              0.910294,
+              0.438438,
+              0.179412
+            ],
+            "confidence": 0.0269606,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.106607,
+              0.075,
+              0.213213,
+              0.15
+            ],
+            "confidence": 0.0271822,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.138138,
+              0.510294,
+              0.276276,
+              0.602941
+            ],
+            "confidence": 0.027223,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.822823,
+              0.726471,
+              0.234234,
+              0.382353
+            ],
+            "confidence": 0.0272778,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.708709,
+              0.560294,
+              0.582583,
+              0.461765
+            ],
+            "confidence": 0.0275623,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.243243,
+              0.811765,
+              0.162162,
+              0.376471
+            ],
+            "confidence": 0.0282822,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.165165,
+              0.761765,
+              0.27027,
+              0.294118
+            ],
+            "confidence": 0.0289838,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.42042,
+              0.827941,
+              0.468468,
+              0.285294
+            ],
+            "confidence": 0.0292246,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.190691,
+              0.566176,
+              0.285285,
+              0.297059
+            ],
+            "confidence": 0.0293853,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.624625,
+              0.811765,
+              0.576577,
+              0.376471
+            ],
+            "confidence": 0.0305445,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.27027,
+              0.325,
+              0.540541,
+              0.638235
+            ],
+            "confidence": 0.0308544,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.15015,
+              0.0558824,
+              0.3003,
+              0.111765
+            ],
+            "confidence": 0.0308692,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.897898,
+              0.413235,
+              0.204204,
+              0.291176
+            ],
+            "confidence": 0.0311915,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.764264,
+              0.716176,
+              0.471471,
+              0.261765
+            ],
+            "confidence": 0.0322976,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.56006,
+              0.694118,
+              0.297297,
+              0.311765
+            ],
+            "confidence": 0.034062,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.725225,
+              0.839706,
+              0.315315,
+              0.320588
+            ],
+            "confidence": 0.0357508,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.864865,
+              0.861765,
+              0.27027,
+              0.276471
+            ],
+            "confidence": 0.0365684,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.297297,
+              0.522059,
+              0.318318,
+              0.291176
+            ],
+            "confidence": 0.0369154,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.617117,
+              0.425,
+              0.399399,
+              0.444118
+            ],
+            "confidence": 0.0381066,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.786787,
+              0.410294,
+              0.426426,
+              0.426471
+            ],
+            "confidence": 0.0406182,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.190691,
+              0.133824,
+              0.381381,
+              0.267647
+            ],
+            "confidence": 0.041017,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.430931,
+              0.483824,
+              0.459459,
+              0.544118
+            ],
+            "confidence": 0.0429101,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.825826,
+              0.814706,
+              0.156156,
+              0.370588
+            ],
+            "confidence": 0.0468446,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.767267,
+              0.811765,
+              0.465465,
+              0.235294
+            ],
+            "confidence": 0.0471234,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.866366,
+              0.516176,
+              0.267267,
+              0.332353
+            ],
+            "confidence": 0.0492199,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.677177,
+              0.285294,
+              0.465465,
+              0.347059
+            ],
+            "confidence": 0.0557865,
+            "class": 0
+          },
+          {
+            "bbox": [
+              0.572072,
+              0.651471,
+              0.561562,
+              0.491176
+            ],
+            "confidence": 0.0638714,
+            "class": 0
+          }
+        ],
+        "total_cyclones": 59,
+        "confidence_scores": [
+          0.0200279,
+          0.0200578,
+          0.0201119,
+          0.0202058,
+          0.0202108,
+          0.0203127,
+          0.0204393,
+          0.0205364,
+          0.0206477,
+          0.0208003,
+          0.0209106,
+          0.0209644,
+          0.0211301,
+          0.0212462,
+          0.0213267,
+          0.0216824,
+          0.0217308,
+          0.0219743,
+          0.0223367,
+          0.0224172,
+          0.0224232,
+          0.0224827,
+          0.0225686,
+          0.0226065,
+          0.0227627,
+          0.0240973,
+          0.0244056,
+          0.024826,
+          0.0251922,
+          0.0259731,
+          0.0266159,
+          0.0267997,
+          0.0269606,
+          0.0271822,
+          0.027223,
+          0.0272778,
+          0.0275623,
+          0.0282822,
+          0.0289838,
+          0.0292246,
+          0.0293853,
+          0.0305445,
+          0.0308544,
+          0.0308692,
+          0.0311915,
+          0.0322976,
+          0.034062,
+          0.0357508,
+          0.0365684,
+          0.0369154,
+          0.0381066,
+          0.0406182,
+          0.041017,
+          0.0429101,
+          0.0468446,
+          0.0471234,
+          0.0492199,
+          0.0557865,
+          0.0638714
+        ],
+        "detection_time": "2025-09-11T03:15:46.789062",
+        "avg_confidence": 0.028584013559322035,
+        "max_confidence": 0.0638714,
+        "detection_quality": "WEAK_MANY"
+      },
+      "enhanced_analysis": [
+        {
+          "region_id": "detection_0",
+          "yolo_detection": {
+            "bbox": [
+              0.651652,
+              0.498529,
+              0.696697,
+              0.997059
+            ],
+            "confidence": 0.0200279,
+            "class": 0
+          },
+          "region_shape": [
+            338,
+            232,
+            3
+          ],
+          "features": {
+            "image_id": "detection_0",
+            "height": 338,
+            "width": 232,
+            "center_brightness": 161.328125,
+            "eye_detected": 1,
+            "eye_clarity": 27.77599271843919,
+            "spiral_patterns": 0.1962864721485411,
+            "largest_circle_radius": 186.81297302246094,
+            "mean_brightness": 108.98251632319935,
+            "brightness_std": 51.273869612436556,
+            "texture_variance": 2629.009705033145,
+            "edge_density": 0.1962864721485411,
+            "horizontal_symmetry": 0.3805577006195922,
+            "vertical_symmetry": 0.3487827063585202,
+            "overall_symmetry": 0.3646702034890562,
+            "bbox_width": 232,
+            "bbox_height": 338,
+            "bbox_area": 78416
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_1",
+          "yolo_detection": {
+            "bbox": [
+              0.0825826,
+              0.15,
+              0.165165,
+              0.3
+            ],
+            "confidence": 0.0200578,
+            "class": 0
+          },
+          "region_shape": [
+            102,
+            54,
+            3
+          ],
+          "features": {
+            "image_id": "detection_1",
+            "height": 102,
+            "width": 54,
+            "center_brightness": 63.76625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.09531590413943355,
+            "largest_circle_radius": 27.28519630432129,
+            "mean_brightness": 74.59694989106754,
+            "brightness_std": 31.009788404610624,
+            "texture_variance": 961.6069768987236,
+            "edge_density": 0.09531590413943355,
+            "horizontal_symmetry": 0.5260117679485367,
+            "vertical_symmetry": 0.06835472872241057,
+            "overall_symmetry": 0.2971832483354736,
+            "bbox_width": 54,
+            "bbox_height": 102,
+            "bbox_area": 5508
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_2",
+          "yolo_detection": {
+            "bbox": [
+              0.600601,
+              0.779412,
+              0.33033,
+              0.152941
+            ],
+            "confidence": 0.0201119,
+            "class": 0
+          },
+          "region_shape": [
+            52,
+            110,
+            3
+          ],
+          "features": {
+            "image_id": "detection_2",
+            "height": 52,
+            "width": 110,
+            "center_brightness": 146.261875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2513986013986014,
+            "largest_circle_radius": 29.967981338500977,
+            "mean_brightness": 126.72814685314685,
+            "brightness_std": 44.39152778654041,
+            "texture_variance": 1970.6077392231894,
+            "edge_density": 0.2513986013986014,
+            "horizontal_symmetry": 0.5674485778044718,
+            "vertical_symmetry": 0.019151905297075333,
+            "overall_symmetry": 0.29330024155077355,
+            "bbox_width": 110,
+            "bbox_height": 52,
+            "bbox_area": 5720
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_3",
+          "yolo_detection": {
+            "bbox": [
+              0.403904,
+              0.7,
+              0.411411,
+              0.282353
+            ],
+            "confidence": 0.0202058,
+            "class": 0
+          },
+          "region_shape": [
+            97,
+            136,
+            3
+          ],
+          "features": {
+            "image_id": "detection_3",
+            "height": 97,
+            "width": 136,
+            "center_brightness": 113.448125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.25280473013947846,
+            "largest_circle_radius": 64.51753997802734,
+            "mean_brightness": 113.70914190418435,
+            "brightness_std": 52.98052992137225,
+            "texture_variance": 2806.936550749421,
+            "edge_density": 0.25280473013947846,
+            "horizontal_symmetry": -0.026452323440233756,
+            "vertical_symmetry": 0.5630723733181843,
+            "overall_symmetry": 0.294762348379209,
+            "bbox_width": 136,
+            "bbox_height": 97,
+            "bbox_area": 13192
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_4",
+          "yolo_detection": {
+            "bbox": [
+              0.03003,
+              0.1,
+              0.0600601,
+              0.0470588
+            ],
+            "confidence": 0.0202108,
+            "class": 0
+          },
+          "region_shape": [
+            55,
+            39,
+            3
+          ],
+          "features": {
+            "image_id": "detection_4",
+            "height": 55,
+            "width": 39,
+            "center_brightness": 85.875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.13752913752913754,
+            "largest_circle_radius": 10.388081550598145,
+            "mean_brightness": 81.13706293706294,
+            "brightness_std": 27.310505876563347,
+            "texture_variance": 745.8637312338012,
+            "edge_density": 0.13752913752913754,
+            "horizontal_symmetry": 0.6369559552336739,
+            "vertical_symmetry": 0.004805638948676292,
+            "overall_symmetry": 0.32088079709117506,
+            "bbox_width": 39,
+            "bbox_height": 55,
+            "bbox_area": 2145
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_5",
+          "yolo_detection": {
+            "bbox": [
+              0.897898,
+              0.308824,
+              0.204204,
+              0.205882
+            ],
+            "confidence": 0.0203127,
+            "class": 0
+          },
+          "region_shape": [
+            70,
+            68,
+            3
+          ],
+          "features": {
+            "image_id": "detection_5",
+            "height": 70,
+            "width": 68,
+            "center_brightness": 80.310625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.13277310924369748,
+            "largest_circle_radius": 47.05591583251953,
+            "mean_brightness": 84.43256302521009,
+            "brightness_std": 36.29598315834552,
+            "texture_variance": 1317.398393430902,
+            "edge_density": 0.13277310924369748,
+            "horizontal_symmetry": 0.5825807167783258,
+            "vertical_symmetry": 0.4547689998468997,
+            "overall_symmetry": 0.5186748583126127,
+            "bbox_width": 68,
+            "bbox_height": 70,
+            "bbox_area": 4760
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Well Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_6",
+          "yolo_detection": {
+            "bbox": [
+              0.569069,
+              0.236765,
+              0.219219,
+              0.320588
+            ],
+            "confidence": 0.0204393,
+            "class": 0
+          },
+          "region_shape": [
+            109,
+            72,
+            3
+          ],
+          "features": {
+            "image_id": "detection_6",
+            "height": 109,
+            "width": 72,
+            "center_brightness": 70.041875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.13544852191641182,
+            "largest_circle_radius": 32.52701187133789,
+            "mean_brightness": 77.24528542303771,
+            "brightness_std": 38.30452119170625,
+            "texture_variance": 1467.236343725873,
+            "edge_density": 0.13544852191641182,
+            "horizontal_symmetry": 0.2546561201604868,
+            "vertical_symmetry": 0.31616210616978574,
+            "overall_symmetry": 0.2854091131651363,
+            "bbox_width": 72,
+            "bbox_height": 109,
+            "bbox_area": 7848
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_7",
+          "yolo_detection": {
+            "bbox": [
+              0.294294,
+              0.841176,
+              0.306306,
+              0.141176
+            ],
+            "confidence": 0.0205364,
+            "class": 0
+          },
+          "region_shape": [
+            88,
+            142,
+            3
+          ],
+          "features": {
+            "image_id": "detection_7",
+            "height": 88,
+            "width": 142,
+            "center_brightness": 81.918125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.21222791293213827,
+            "largest_circle_radius": 57.84687805175781,
+            "mean_brightness": 80.42069462227913,
+            "brightness_std": 37.97419288482291,
+            "texture_variance": 1442.0393252537353,
+            "edge_density": 0.21222791293213827,
+            "horizontal_symmetry": 0.1727366471356859,
+            "vertical_symmetry": 0.3786646866388525,
+            "overall_symmetry": 0.2757006668872692,
+            "bbox_width": 142,
+            "bbox_height": 88,
+            "bbox_area": 12496
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_8",
+          "yolo_detection": {
+            "bbox": [
+              0.226727,
+              0.211765,
+              0.357357,
+              0.358824
+            ],
+            "confidence": 0.0206477,
+            "class": 0
+          },
+          "region_shape": [
+            122,
+            119,
+            3
+          ],
+          "features": {
+            "image_id": "detection_8",
+            "height": 122,
+            "width": 119,
+            "center_brightness": 61.7525,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.061992009918721586,
+            "largest_circle_radius": 72.61985778808594,
+            "mean_brightness": 68.31099324975892,
+            "brightness_std": 29.563606171358202,
+            "texture_variance": 874.0068098551687,
+            "edge_density": 0.061992009918721586,
+            "horizontal_symmetry": 0.3771938701625706,
+            "vertical_symmetry": 0.36163338392422667,
+            "overall_symmetry": 0.36941362704339864,
+            "bbox_width": 119,
+            "bbox_height": 122,
+            "bbox_area": 14518
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_9",
+          "yolo_detection": {
+            "bbox": [
+              0.472973,
+              0.336765,
+              0.321321,
+              0.367647
+            ],
+            "confidence": 0.0208003,
+            "class": 0
+          },
+          "region_shape": [
+            125,
+            106,
+            3
+          ],
+          "features": {
+            "image_id": "detection_9",
+            "height": 125,
+            "width": 106,
+            "center_brightness": 71.931875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.15652830188679245,
+            "largest_circle_radius": 46.05712890625,
+            "mean_brightness": 78.18445283018868,
+            "brightness_std": 38.94394539352444,
+            "texture_variance": 1516.630882813813,
+            "edge_density": 0.15652830188679245,
+            "horizontal_symmetry": 0.13856648835663835,
+            "vertical_symmetry": 0.20005383608415753,
+            "overall_symmetry": 0.16931016222039794,
+            "bbox_width": 106,
+            "bbox_height": 125,
+            "bbox_area": 13250
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_10",
+          "yolo_detection": {
+            "bbox": [
+              0.0315315,
+              0.745588,
+              0.00900901,
+              0.0911765
+            ],
+            "confidence": 0.0209106,
+            "class": 0
+          },
+          "region_shape": [
+            71,
+            31,
+            3
+          ],
+          "features": {
+            "image_id": "detection_10",
+            "height": 71,
+            "width": 31,
+            "center_brightness": 51.39,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.06996819627442072,
+            "largest_circle_radius": 6.708303928375244,
+            "mean_brightness": 50.76238073602908,
+            "brightness_std": 25.698941343059158,
+            "texture_variance": 660.4355861539951,
+            "edge_density": 0.06996819627442072,
+            "horizontal_symmetry": 0.9094582936482628,
+            "vertical_symmetry": 0.009358347556729358,
+            "overall_symmetry": 0.4594083206024961,
+            "bbox_width": 31,
+            "bbox_height": 71,
+            "bbox_area": 2201
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_11",
+          "yolo_detection": {
+            "bbox": [
+              0.357357,
+              0.227941,
+              0.402402,
+              0.432353
+            ],
+            "confidence": 0.0209644,
+            "class": 0
+          },
+          "region_shape": [
+            147,
+            134,
+            3
+          ],
+          "features": {
+            "image_id": "detection_11",
+            "height": 147,
+            "width": 134,
+            "center_brightness": 69.90375,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.06279825362981013,
+            "largest_circle_radius": 19.60836410522461,
+            "mean_brightness": 69.948319626358,
+            "brightness_std": 26.809329452050402,
+            "texture_variance": 718.740145668577,
+            "edge_density": 0.06279825362981013,
+            "horizontal_symmetry": 0.40447149751345735,
+            "vertical_symmetry": 0.45195138942463436,
+            "overall_symmetry": 0.4282114434690458,
+            "bbox_width": 134,
+            "bbox_height": 147,
+            "bbox_area": 19698
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_12",
+          "yolo_detection": {
+            "bbox": [
+              0.581081,
+              0.0852941,
+              0.345345,
+              0.158824
+            ],
+            "confidence": 0.0211301,
+            "class": 0
+          },
+          "region_shape": [
+            55,
+            114,
+            3
+          ],
+          "features": {
+            "image_id": "detection_12",
+            "height": 55,
+            "width": 114,
+            "center_brightness": 82.7025,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.03604465709728868,
+            "largest_circle_radius": 12.747649192810059,
+            "mean_brightness": 83.33891547049441,
+            "brightness_std": 28.58783383122817,
+            "texture_variance": 817.2642431619139,
+            "edge_density": 0.03604465709728868,
+            "horizontal_symmetry": 0.5364764170001903,
+            "vertical_symmetry": 0.48793317539357034,
+            "overall_symmetry": 0.5122047961968803,
+            "bbox_width": 114,
+            "bbox_height": 55,
+            "bbox_area": 6270
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Well Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_13",
+          "yolo_detection": {
+            "bbox": [
+              0.755255,
+              0.794118,
+              0.279279,
+              0.147059
+            ],
+            "confidence": 0.0212462,
+            "class": 0
+          },
+          "region_shape": [
+            50,
+            93,
+            3
+          ],
+          "features": {
+            "image_id": "detection_13",
+            "height": 50,
+            "width": 93,
+            "center_brightness": 115.71,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2847311827956989,
+            "largest_circle_radius": 28.056915283203125,
+            "mean_brightness": 115.7283870967742,
+            "brightness_std": 40.055992941341785,
+            "texture_variance": 1604.4825705168228,
+            "edge_density": 0.2847311827956989,
+            "horizontal_symmetry": -0.10081268239223748,
+            "vertical_symmetry": -0.07015588598243262,
+            "overall_symmetry": 0.08548428418733506,
+            "bbox_width": 93,
+            "bbox_height": 50,
+            "bbox_area": 4650
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_14",
+          "yolo_detection": {
+            "bbox": [
+              0.668168,
+              0.688235,
+              0.231231,
+              0.417647
+            ],
+            "confidence": 0.0213267,
+            "class": 0
+          },
+          "region_shape": [
+            142,
+            77,
+            3
+          ],
+          "features": {
+            "image_id": "detection_14",
+            "height": 142,
+            "width": 77,
+            "center_brightness": 188.956875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.22571794402780318,
+            "largest_circle_radius": 70.61532592773438,
+            "mean_brightness": 152.35037497713554,
+            "brightness_std": 50.22253998313924,
+            "texture_variance": 2522.30352235802,
+            "edge_density": 0.22571794402780318,
+            "horizontal_symmetry": 0.24759982693330168,
+            "vertical_symmetry": 0.574067230205147,
+            "overall_symmetry": 0.4108335285692244,
+            "bbox_width": 77,
+            "bbox_height": 142,
+            "bbox_area": 10934
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_15",
+          "yolo_detection": {
+            "bbox": [
+              0.567568,
+              0.888235,
+              0.456456,
+              0.223529
+            ],
+            "confidence": 0.0216824,
+            "class": 0
+          },
+          "region_shape": [
+            76,
+            152,
+            3
+          ],
+          "features": {
+            "image_id": "detection_15",
+            "height": 76,
+            "width": 152,
+            "center_brightness": 96.590625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2648891966759003,
+            "largest_circle_radius": 70.23013305664062,
+            "mean_brightness": 115.47532894736842,
+            "brightness_std": 44.22284149507716,
+            "texture_variance": 1955.6597098987188,
+            "edge_density": 0.2648891966759003,
+            "horizontal_symmetry": -0.035883571417922665,
+            "vertical_symmetry": 0.262299545556416,
+            "overall_symmetry": 0.14909155848716932,
+            "bbox_width": 152,
+            "bbox_height": 76,
+            "bbox_area": 11552
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_16",
+          "yolo_detection": {
+            "bbox": [
+              0.776276,
+              0.792647,
+              0.447447,
+              0.0617647
+            ],
+            "confidence": 0.0217308,
+            "class": 0
+          },
+          "region_shape": [
+            61,
+            170,
+            3
+          ],
+          "features": {
+            "image_id": "detection_16",
+            "height": 61,
+            "width": 170,
+            "center_brightness": 115.738125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2690453230472517,
+            "largest_circle_radius": 45.807281494140625,
+            "mean_brightness": 130.46499517839922,
+            "brightness_std": 44.760564973913915,
+            "texture_variance": 2003.508176783969,
+            "edge_density": 0.2690453230472517,
+            "horizontal_symmetry": 0.005517542215218418,
+            "vertical_symmetry": 0.1938106815740985,
+            "overall_symmetry": 0.09966411189465846,
+            "bbox_width": 170,
+            "bbox_height": 61,
+            "bbox_area": 10370
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_17",
+          "yolo_detection": {
+            "bbox": [
+              0.460961,
+              0.694118,
+              0.225225,
+              0.441176
+            ],
+            "confidence": 0.0219743,
+            "class": 0
+          },
+          "region_shape": [
+            150,
+            74,
+            3
+          ],
+          "features": {
+            "image_id": "detection_17",
+            "height": 150,
+            "width": 74,
+            "center_brightness": 134.564375,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2754054054054054,
+            "largest_circle_radius": 45.0101318359375,
+            "mean_brightness": 114.01792792792793,
+            "brightness_std": 42.542232786741366,
+            "texture_variance": 1809.8415704812921,
+            "edge_density": 0.2754054054054054,
+            "horizontal_symmetry": 0.04431183320538617,
+            "vertical_symmetry": 0.38324639466569027,
+            "overall_symmetry": 0.21377911393553822,
+            "bbox_width": 74,
+            "bbox_height": 150,
+            "bbox_area": 11100
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_18",
+          "yolo_detection": {
+            "bbox": [
+              0.220721,
+              0.0676471,
+              0.345345,
+              0.135294
+            ],
+            "confidence": 0.0223367,
+            "class": 0
+          },
+          "region_shape": [
+            65,
+            151,
+            3
+          ],
+          "features": {
+            "image_id": "detection_18",
+            "height": 65,
+            "width": 151,
+            "center_brightness": 70.578125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.07009679062659195,
+            "largest_circle_radius": 30.820241928100586,
+            "mean_brightness": 77.59195109526236,
+            "brightness_std": 24.867528320316534,
+            "texture_variance": 618.3939647617449,
+            "edge_density": 0.07009679062659195,
+            "horizontal_symmetry": 0.09212994487401496,
+            "vertical_symmetry": 0.36836090539552174,
+            "overall_symmetry": 0.23024542513476837,
+            "bbox_width": 151,
+            "bbox_height": 65,
+            "bbox_area": 9815
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_19",
+          "yolo_detection": {
+            "bbox": [
+              0.801802,
+              0.839706,
+              0.396396,
+              0.0617647
+            ],
+            "confidence": 0.0224172,
+            "class": 0
+          },
+          "region_shape": [
+            61,
+            152,
+            3
+          ],
+          "features": {
+            "image_id": "detection_19",
+            "height": 61,
+            "width": 152,
+            "center_brightness": 111.936875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2848360655737705,
+            "largest_circle_radius": 46.127281188964844,
+            "mean_brightness": 125.94715271786022,
+            "brightness_std": 42.76849930083103,
+            "texture_variance": 1829.1445324451845,
+            "edge_density": 0.2848360655737705,
+            "horizontal_symmetry": 0.10808591473051955,
+            "vertical_symmetry": 0.18737867128326122,
+            "overall_symmetry": 0.1477322930068904,
+            "bbox_width": 152,
+            "bbox_height": 61,
+            "bbox_area": 9272
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_20",
+          "yolo_detection": {
+            "bbox": [
+              0.0855856,
+              0.411765,
+              0.141141,
+              0.494118
+            ],
+            "confidence": 0.0224232,
+            "class": 0
+          },
+          "region_shape": [
+            208,
+            71,
+            3
+          ],
+          "features": {
+            "image_id": "detection_20",
+            "height": 208,
+            "width": 71,
+            "center_brightness": 53.09125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.05606717226435536,
+            "largest_circle_radius": 53.63750457763672,
+            "mean_brightness": 54.75297941495125,
+            "brightness_std": 30.662404047964987,
+            "texture_variance": 940.1830220006597,
+            "edge_density": 0.05606717226435536,
+            "horizontal_symmetry": 0.43775512859408705,
+            "vertical_symmetry": 0.03665308096195192,
+            "overall_symmetry": 0.23720410477801948,
+            "bbox_width": 71,
+            "bbox_height": 208,
+            "bbox_area": 14768
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_21",
+          "yolo_detection": {
+            "bbox": [
+              0.033033,
+              0.248529,
+              0.0660661,
+              0.05
+            ],
+            "confidence": 0.0224827,
+            "class": 0
+          },
+          "region_shape": [
+            57,
+            41,
+            3
+          ],
+          "features": {
+            "image_id": "detection_21",
+            "height": 57,
+            "width": 41,
+            "center_brightness": 60.395,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.0693196405648267,
+            "largest_circle_radius": 17.189537048339844,
+            "mean_brightness": 58.9045785194694,
+            "brightness_std": 31.3032548094357,
+            "texture_variance": 979.8937616644594,
+            "edge_density": 0.0693196405648267,
+            "horizontal_symmetry": 0.005353648103290412,
+            "vertical_symmetry": -0.009421652227446543,
+            "overall_symmetry": 0.0073876501653684775,
+            "bbox_width": 41,
+            "bbox_height": 57,
+            "bbox_area": 2337
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_22",
+          "yolo_detection": {
+            "bbox": [
+              0.246246,
+              0.517647,
+              0.168168,
+              0.235294
+            ],
+            "confidence": 0.0225686,
+            "class": 0
+          },
+          "region_shape": [
+            79,
+            56,
+            3
+          ],
+          "features": {
+            "image_id": "detection_22",
+            "height": 79,
+            "width": 56,
+            "center_brightness": 55.490625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.0517631103074141,
+            "largest_circle_radius": 11.401854515075684,
+            "mean_brightness": 58.39489150090416,
+            "brightness_std": 17.39245646006256,
+            "texture_variance": 302.4975417151719,
+            "edge_density": 0.0517631103074141,
+            "horizontal_symmetry": 0.004502683105393797,
+            "vertical_symmetry": 0.011707130530961939,
+            "overall_symmetry": 0.008104906818177868,
+            "bbox_width": 56,
+            "bbox_height": 79,
+            "bbox_area": 4424
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_23",
+          "yolo_detection": {
+            "bbox": [
+              0.897898,
+              0.167647,
+              0.204204,
+              0.229412
+            ],
+            "confidence": 0.0226065,
+            "class": 0
+          },
+          "region_shape": [
+            79,
+            68,
+            3
+          ],
+          "features": {
+            "image_id": "detection_23",
+            "height": 79,
+            "width": 68,
+            "center_brightness": 66.653125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.016567386448250187,
+            "largest_circle_radius": 3.3542017936706543,
+            "mean_brightness": 73.0228965003723,
+            "brightness_std": 24.31345542325229,
+            "texture_variance": 591.1441146184761,
+            "edge_density": 0.016567386448250187,
+            "horizontal_symmetry": 0.2966657821269646,
+            "vertical_symmetry": 0.8871177464661887,
+            "overall_symmetry": 0.5918917642965766,
+            "bbox_width": 68,
+            "bbox_height": 79,
+            "bbox_area": 5372
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Well Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_24",
+          "yolo_detection": {
+            "bbox": [
+              0.183183,
+              0.677941,
+              0.366366,
+              0.485294
+            ],
+            "confidence": 0.0227627,
+            "class": 0
+          },
+          "region_shape": [
+            165,
+            121,
+            3
+          ],
+          "features": {
+            "image_id": "detection_24",
+            "height": 165,
+            "width": 121,
+            "center_brightness": 66.436875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.13418482344102178,
+            "largest_circle_radius": 41.33086013793945,
+            "mean_brightness": 62.95286751815677,
+            "brightness_std": 37.827423012906586,
+            "texture_variance": 1430.9139317973745,
+            "edge_density": 0.13418482344102178,
+            "horizontal_symmetry": 0.23293812269607256,
+            "vertical_symmetry": 0.3354128038096137,
+            "overall_symmetry": 0.28417546325284315,
+            "bbox_width": 121,
+            "bbox_height": 165,
+            "bbox_area": 19965
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_25",
+          "yolo_detection": {
+            "bbox": [
+              0.301802,
+              0.75,
+              0.309309,
+              0.370588
+            ],
+            "confidence": 0.0240973,
+            "class": 0
+          },
+          "region_shape": [
+            125,
+            103,
+            3
+          ],
+          "features": {
+            "image_id": "detection_25",
+            "height": 125,
+            "width": 103,
+            "center_brightness": 84.32125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.25219417475728156,
+            "largest_circle_radius": 48.93117141723633,
+            "mean_brightness": 85.31448543689321,
+            "brightness_std": 43.227468477217315,
+            "texture_variance": 1868.614030948817,
+            "edge_density": 0.25219417475728156,
+            "horizontal_symmetry": 0.1782292489735871,
+            "vertical_symmetry": 0.37604222834757517,
+            "overall_symmetry": 0.27713573866058117,
+            "bbox_width": 103,
+            "bbox_height": 125,
+            "bbox_area": 12875
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_26",
+          "yolo_detection": {
+            "bbox": [
+              0.175676,
+              0.394118,
+              0.351351,
+              0.4
+            ],
+            "confidence": 0.0244056,
+            "class": 0
+          },
+          "region_shape": [
+            136,
+            117,
+            3
+          ],
+          "features": {
+            "image_id": "detection_26",
+            "height": 136,
+            "width": 117,
+            "center_brightness": 59.323125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.06246857717445953,
+            "largest_circle_radius": 77.90179443359375,
+            "mean_brightness": 58.00879839115133,
+            "brightness_std": 33.14051582055969,
+            "texture_variance": 1098.2937888527674,
+            "edge_density": 0.06246857717445953,
+            "horizontal_symmetry": 0.25041917733087565,
+            "vertical_symmetry": 0.3214254892410773,
+            "overall_symmetry": 0.2859223332859765,
+            "bbox_width": 117,
+            "bbox_height": 136,
+            "bbox_area": 15912
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_27",
+          "yolo_detection": {
+            "bbox": [
+              0.543544,
+              0.736765,
+              0.216216,
+              0.185294
+            ],
+            "confidence": 0.024826,
+            "class": 0
+          },
+          "region_shape": [
+            63,
+            72,
+            3
+          ],
+          "features": {
+            "image_id": "detection_27",
+            "height": 63,
+            "width": 72,
+            "center_brightness": 164.748125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.1948853615520282,
+            "largest_circle_radius": 36.74951934814453,
+            "mean_brightness": 154.09898589065256,
+            "brightness_std": 48.59894304699964,
+            "texture_variance": 2361.857265285515,
+            "edge_density": 0.1948853615520282,
+            "horizontal_symmetry": 0.47131992004462037,
+            "vertical_symmetry": 0.2960071485236018,
+            "overall_symmetry": 0.3836635342841111,
+            "bbox_width": 72,
+            "bbox_height": 63,
+            "bbox_area": 4536
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_28",
+          "yolo_detection": {
+            "bbox": [
+              0.512012,
+              0.214706,
+              0.447447,
+              0.364706
+            ],
+            "confidence": 0.0251922,
+            "class": 0
+          },
+          "region_shape": [
+            124,
+            148,
+            3
+          ],
+          "features": {
+            "image_id": "detection_28",
+            "height": 124,
+            "width": 148,
+            "center_brightness": 66.285,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.09399520488230166,
+            "largest_circle_radius": 41.00314712524414,
+            "mean_brightness": 76.33593068875327,
+            "brightness_std": 35.84869485192318,
+            "texture_variance": 1285.1289225863034,
+            "edge_density": 0.09399520488230166,
+            "horizontal_symmetry": 0.21731450264192134,
+            "vertical_symmetry": 0.40159603919253717,
+            "overall_symmetry": 0.30945527091722924,
+            "bbox_width": 148,
+            "bbox_height": 124,
+            "bbox_area": 18352
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_29",
+          "yolo_detection": {
+            "bbox": [
+              0.268769,
+              0.629412,
+              0.429429,
+              0.729412
+            ],
+            "confidence": 0.0259731,
+            "class": 0
+          },
+          "region_shape": [
+            248,
+            143,
+            3
+          ],
+          "features": {
+            "image_id": "detection_29",
+            "height": 248,
+            "width": 143,
+            "center_brightness": 76.818125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.1576810286487706,
+            "largest_circle_radius": 56.414093017578125,
+            "mean_brightness": 71.54407286262125,
+            "brightness_std": 39.62279749707677,
+            "texture_variance": 1569.9660814943527,
+            "edge_density": 0.1576810286487706,
+            "horizontal_symmetry": 0.20454210951567384,
+            "vertical_symmetry": 0.29918932398494297,
+            "overall_symmetry": 0.2518657167503084,
+            "bbox_width": 143,
+            "bbox_height": 248,
+            "bbox_area": 35464
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_30",
+          "yolo_detection": {
+            "bbox": [
+              0.66967,
+              0.151471,
+              0.600601,
+              0.302941
+            ],
+            "confidence": 0.0266159,
+            "class": 0
+          },
+          "region_shape": [
+            103,
+            200,
+            3
+          ],
+          "features": {
+            "image_id": "detection_30",
+            "height": 103,
+            "width": 200,
+            "center_brightness": 69.498125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.044271844660194175,
+            "largest_circle_radius": 38.27541732788086,
+            "mean_brightness": 78.3116504854369,
+            "brightness_std": 28.250279836988003,
+            "texture_variance": 798.0783108681309,
+            "edge_density": 0.044271844660194175,
+            "horizontal_symmetry": 0.45579887113131035,
+            "vertical_symmetry": 0.38476213896387745,
+            "overall_symmetry": 0.4202805050475939,
+            "bbox_width": 200,
+            "bbox_height": 103,
+            "bbox_area": 20600
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_31",
+          "yolo_detection": {
+            "bbox": [
+              0.887387,
+              0.611765,
+              0.225225,
+              0.182353
+            ],
+            "confidence": 0.0267997,
+            "class": 0
+          },
+          "region_shape": [
+            62,
+            75,
+            3
+          ],
+          "features": {
+            "image_id": "detection_31",
+            "height": 62,
+            "width": 75,
+            "center_brightness": 119.725625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2647311827956989,
+            "largest_circle_radius": 37.33640670776367,
+            "mean_brightness": 122.28043010752688,
+            "brightness_std": 46.11312018914409,
+            "texture_variance": 2126.4198535784485,
+            "edge_density": 0.2647311827956989,
+            "horizontal_symmetry": -0.07948642593755542,
+            "vertical_symmetry": -0.16100898233221625,
+            "overall_symmetry": 0.12024770413488584,
+            "bbox_width": 75,
+            "bbox_height": 62,
+            "bbox_area": 4650
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_32",
+          "yolo_detection": {
+            "bbox": [
+              0.681682,
+              0.910294,
+              0.438438,
+              0.179412
+            ],
+            "confidence": 0.0269606,
+            "class": 0
+          },
+          "region_shape": [
+            62,
+            146,
+            3
+          ],
+          "features": {
+            "image_id": "detection_32",
+            "height": 62,
+            "width": 146,
+            "center_brightness": 131.51125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.278391515687141,
+            "largest_circle_radius": 75.48202514648438,
+            "mean_brightness": 131.5036456031816,
+            "brightness_std": 49.60149955648295,
+            "texture_variance": 2460.3087582517783,
+            "edge_density": 0.278391515687141,
+            "horizontal_symmetry": 0.45679604510160593,
+            "vertical_symmetry": 0.02462868975719418,
+            "overall_symmetry": 0.24071236742940005,
+            "bbox_width": 146,
+            "bbox_height": 62,
+            "bbox_area": 9052
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_33",
+          "yolo_detection": {
+            "bbox": [
+              0.106607,
+              0.075,
+              0.213213,
+              0.15
+            ],
+            "confidence": 0.0271822,
+            "class": 0
+          },
+          "region_shape": [
+            51,
+            71,
+            3
+          ],
+          "features": {
+            "image_id": "detection_33",
+            "height": 51,
+            "width": 71,
+            "center_brightness": 95.495625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.1375310687655344,
+            "largest_circle_radius": 30.820241928100586,
+            "mean_brightness": 87.08892571112952,
+            "brightness_std": 27.555469230997737,
+            "texture_variance": 759.303884540463,
+            "edge_density": 0.1375310687655344,
+            "horizontal_symmetry": 0.686903572645682,
+            "vertical_symmetry": -0.16411714155397125,
+            "overall_symmetry": 0.42551035709982665,
+            "bbox_width": 71,
+            "bbox_height": 51,
+            "bbox_area": 3621
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Moderately Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_34",
+          "yolo_detection": {
+            "bbox": [
+              0.138138,
+              0.510294,
+              0.276276,
+              0.602941
+            ],
+            "confidence": 0.027223,
+            "class": 0
+          },
+          "region_shape": [
+            205,
+            91,
+            3
+          ],
+          "features": {
+            "image_id": "detection_34",
+            "height": 205,
+            "width": 91,
+            "center_brightness": 53.80375,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.08726882873224337,
+            "largest_circle_radius": 56.65598678588867,
+            "mean_brightness": 57.17346555883141,
+            "brightness_std": 32.264317008022815,
+            "texture_variance": 1040.9861519941903,
+            "edge_density": 0.08726882873224337,
+            "horizontal_symmetry": 0.3596162394717689,
+            "vertical_symmetry": 0.031836998033591316,
+            "overall_symmetry": 0.1957266187526801,
+            "bbox_width": 91,
+            "bbox_height": 205,
+            "bbox_area": 18655
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_35",
+          "yolo_detection": {
+            "bbox": [
+              0.822823,
+              0.726471,
+              0.234234,
+              0.382353
+            ],
+            "confidence": 0.0272778,
+            "class": 0
+          },
+          "region_shape": [
+            130,
+            78,
+            3
+          ],
+          "features": {
+            "image_id": "detection_35",
+            "height": 130,
+            "width": 78,
+            "center_brightness": 109.15625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.295956607495069,
+            "largest_circle_radius": 46.06901168823242,
+            "mean_brightness": 123.96706114398422,
+            "brightness_std": 39.61416104461195,
+            "texture_variance": 1569.2817552684508,
+            "edge_density": 0.295956607495069,
+            "horizontal_symmetry": 0.041094647657254825,
+            "vertical_symmetry": 0.10270742641305368,
+            "overall_symmetry": 0.07190103703515426,
+            "bbox_width": 78,
+            "bbox_height": 130,
+            "bbox_area": 10140
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_36",
+          "yolo_detection": {
+            "bbox": [
+              0.708709,
+              0.560294,
+              0.582583,
+              0.461765
+            ],
+            "confidence": 0.0275623,
+            "class": 0
+          },
+          "region_shape": [
+            158,
+            194,
+            3
+          ],
+          "features": {
+            "image_id": "detection_36",
+            "height": 158,
+            "width": 194,
+            "center_brightness": 165.5525,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.25985253817042936,
+            "largest_circle_radius": 124.08172607421875,
+            "mean_brightness": 132.3428161294532,
+            "brightness_std": 52.2874729548899,
+            "texture_variance": 2733.9798280083423,
+            "edge_density": 0.25985253817042936,
+            "horizontal_symmetry": 0.2325101265276489,
+            "vertical_symmetry": 0.19001942446224032,
+            "overall_symmetry": 0.2112647754949446,
+            "bbox_width": 194,
+            "bbox_height": 158,
+            "bbox_area": 30652
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_37",
+          "yolo_detection": {
+            "bbox": [
+              0.243243,
+              0.811765,
+              0.162162,
+              0.376471
+            ],
+            "confidence": 0.0282822,
+            "class": 0
+          },
+          "region_shape": [
+            128,
+            54,
+            3
+          ],
+          "features": {
+            "image_id": "detection_37",
+            "height": 128,
+            "width": 54,
+            "center_brightness": 74.561875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.20066550925925927,
+            "largest_circle_radius": 24.421960830688477,
+            "mean_brightness": 70.54600694444444,
+            "brightness_std": 37.96540169619776,
+            "texture_variance": 1441.3717259536554,
+            "edge_density": 0.20066550925925927,
+            "horizontal_symmetry": 0.38707543518681825,
+            "vertical_symmetry": -0.0036653990454427617,
+            "overall_symmetry": 0.1953704171161305,
+            "bbox_width": 54,
+            "bbox_height": 128,
+            "bbox_area": 6912
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_38",
+          "yolo_detection": {
+            "bbox": [
+              0.165165,
+              0.761765,
+              0.27027,
+              0.294118
+            ],
+            "confidence": 0.0289838,
+            "class": 0
+          },
+          "region_shape": [
+            100,
+            90,
+            3
+          ],
+          "features": {
+            "image_id": "detection_38",
+            "height": 100,
+            "width": 90,
+            "center_brightness": 73.701875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.15788888888888888,
+            "largest_circle_radius": 17.67776870727539,
+            "mean_brightness": 62.342333333333336,
+            "brightness_std": 33.74996340903366,
+            "texture_variance": 1139.0600301111112,
+            "edge_density": 0.15788888888888888,
+            "horizontal_symmetry": 0.40665314631722016,
+            "vertical_symmetry": 0.1447114290028846,
+            "overall_symmetry": 0.27568228766005237,
+            "bbox_width": 90,
+            "bbox_height": 100,
+            "bbox_area": 9000
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_39",
+          "yolo_detection": {
+            "bbox": [
+              0.42042,
+              0.827941,
+              0.468468,
+              0.285294
+            ],
+            "confidence": 0.0292246,
+            "class": 0
+          },
+          "region_shape": [
+            97,
+            156,
+            3
+          ],
+          "features": {
+            "image_id": "detection_39",
+            "height": 97,
+            "width": 156,
+            "center_brightness": 110.245,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2429288924134285,
+            "largest_circle_radius": 79.91567993164062,
+            "mean_brightness": 102.38950568332011,
+            "brightness_std": 47.16098481652841,
+            "texture_variance": 2224.1584888648235,
+            "edge_density": 0.2429288924134285,
+            "horizontal_symmetry": -0.0019979852873204377,
+            "vertical_symmetry": 0.37900433441622633,
+            "overall_symmetry": 0.19050115985177338,
+            "bbox_width": 156,
+            "bbox_height": 97,
+            "bbox_area": 15132
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_40",
+          "yolo_detection": {
+            "bbox": [
+              0.190691,
+              0.566176,
+              0.285285,
+              0.297059
+            ],
+            "confidence": 0.0293853,
+            "class": 0
+          },
+          "region_shape": [
+            101,
+            95,
+            3
+          ],
+          "features": {
+            "image_id": "detection_40",
+            "height": 101,
+            "width": 95,
+            "center_brightness": 57.4275,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.10411672746221991,
+            "largest_circle_radius": 34.014801025390625,
+            "mean_brightness": 59.90119854090672,
+            "brightness_std": 39.23627116729859,
+            "texture_variance": 1539.4849751137865,
+            "edge_density": 0.10411672746221991,
+            "horizontal_symmetry": 0.20805947975217995,
+            "vertical_symmetry": 0.30161888501922474,
+            "overall_symmetry": 0.25483918238570236,
+            "bbox_width": 95,
+            "bbox_height": 101,
+            "bbox_area": 9595
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_41",
+          "yolo_detection": {
+            "bbox": [
+              0.624625,
+              0.811765,
+              0.576577,
+              0.376471
+            ],
+            "confidence": 0.0305445,
+            "class": 0
+          },
+          "region_shape": [
+            128,
+            192,
+            3
+          ],
+          "features": {
+            "image_id": "detection_41",
+            "height": 128,
+            "width": 192,
+            "center_brightness": 115.7475,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2679443359375,
+            "largest_circle_radius": 111.30664825439453,
+            "mean_brightness": 129.59488932291666,
+            "brightness_std": 49.75749897603104,
+            "texture_variance": 2475.80870434973,
+            "edge_density": 0.2679443359375,
+            "horizontal_symmetry": 0.32209331022609644,
+            "vertical_symmetry": 0.13214199310506441,
+            "overall_symmetry": 0.22711765166558043,
+            "bbox_width": 192,
+            "bbox_height": 128,
+            "bbox_area": 24576
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_42",
+          "yolo_detection": {
+            "bbox": [
+              0.27027,
+              0.325,
+              0.540541,
+              0.638235
+            ],
+            "confidence": 0.0308544,
+            "class": 0
+          },
+          "region_shape": [
+            216,
+            179,
+            3
+          ],
+          "features": {
+            "image_id": "detection_42",
+            "height": 216,
+            "width": 179,
+            "center_brightness": 62.190625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.09259259259259259,
+            "largest_circle_radius": 39.395530700683594,
+            "mean_brightness": 68.55816780467619,
+            "brightness_std": 32.60244925475125,
+            "texture_variance": 1062.91969740863,
+            "edge_density": 0.09259259259259259,
+            "horizontal_symmetry": 0.10034430645385424,
+            "vertical_symmetry": 0.19900264047601168,
+            "overall_symmetry": 0.14967347346493295,
+            "bbox_width": 179,
+            "bbox_height": 216,
+            "bbox_area": 38664
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_43",
+          "yolo_detection": {
+            "bbox": [
+              0.15015,
+              0.0558824,
+              0.3003,
+              0.111765
+            ],
+            "confidence": 0.0308692,
+            "class": 0
+          },
+          "region_shape": [
+            58,
+            119,
+            3
+          ],
+          "features": {
+            "image_id": "detection_43",
+            "height": 58,
+            "width": 119,
+            "center_brightness": 76.8175,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.09591422776006954,
+            "largest_circle_radius": 30.820241928100586,
+            "mean_brightness": 81.03375833091857,
+            "brightness_std": 27.561666940553536,
+            "texture_variance": 759.6454845420018,
+            "edge_density": 0.09591422776006954,
+            "horizontal_symmetry": 0.1827524196712471,
+            "vertical_symmetry": 0.3379497541130361,
+            "overall_symmetry": 0.2603510868921416,
+            "bbox_width": 119,
+            "bbox_height": 58,
+            "bbox_area": 6902
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_44",
+          "yolo_detection": {
+            "bbox": [
+              0.897898,
+              0.413235,
+              0.204204,
+              0.291176
+            ],
+            "confidence": 0.0311915,
+            "class": 0
+          },
+          "region_shape": [
+            99,
+            68,
+            3
+          ],
+          "features": {
+            "image_id": "detection_44",
+            "height": 99,
+            "width": 68,
+            "center_brightness": 101.535,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.232174688057041,
+            "largest_circle_radius": 53.212528228759766,
+            "mean_brightness": 106.43627450980392,
+            "brightness_std": 46.414927164870655,
+            "texture_variance": 2154.3454637202476,
+            "edge_density": 0.232174688057041,
+            "horizontal_symmetry": 0.2885561854296466,
+            "vertical_symmetry": 0.11884226749915829,
+            "overall_symmetry": 0.20369922646440244,
+            "bbox_width": 68,
+            "bbox_height": 99,
+            "bbox_area": 6732
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_45",
+          "yolo_detection": {
+            "bbox": [
+              0.764264,
+              0.716176,
+              0.471471,
+              0.261765
+            ],
+            "confidence": 0.0322976,
+            "class": 0
+          },
+          "region_shape": [
+            89,
+            157,
+            3
+          ],
+          "features": {
+            "image_id": "detection_45",
+            "height": 89,
+            "width": 157,
+            "center_brightness": 116.965625,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.24826451012667286,
+            "largest_circle_radius": 78.16019439697266,
+            "mean_brightness": 145.02798253775137,
+            "brightness_std": 49.83594359296767,
+            "texture_variance": 2483.621273801456,
+            "edge_density": 0.24826451012667286,
+            "horizontal_symmetry": 0.04635809780650887,
+            "vertical_symmetry": 0.26684193710240417,
+            "overall_symmetry": 0.1566000174544565,
+            "bbox_width": 157,
+            "bbox_height": 89,
+            "bbox_area": 13973
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_46",
+          "yolo_detection": {
+            "bbox": [
+              0.56006,
+              0.694118,
+              0.297297,
+              0.311765
+            ],
+            "confidence": 0.034062,
+            "class": 0
+          },
+          "region_shape": [
+            106,
+            98,
+            3
+          ],
+          "features": {
+            "image_id": "detection_46",
+            "height": 106,
+            "width": 98,
+            "center_brightness": 189.621875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.22776280323450135,
+            "largest_circle_radius": 70.79911041259766,
+            "mean_brightness": 148.2458606083943,
+            "brightness_std": 50.50388387525258,
+            "texture_variance": 2550.642286484998,
+            "edge_density": 0.22776280323450135,
+            "horizontal_symmetry": 0.4294823944368424,
+            "vertical_symmetry": 0.6158195999364291,
+            "overall_symmetry": 0.5226509971866358,
+            "bbox_width": 98,
+            "bbox_height": 106,
+            "bbox_area": 10388
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Well Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_47",
+          "yolo_detection": {
+            "bbox": [
+              0.725225,
+              0.839706,
+              0.315315,
+              0.320588
+            ],
+            "confidence": 0.0357508,
+            "class": 0
+          },
+          "region_shape": [
+            108,
+            105,
+            3
+          ],
+          "features": {
+            "image_id": "detection_47",
+            "height": 108,
+            "width": 105,
+            "center_brightness": 115.021875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.25141093474426807,
+            "largest_circle_radius": 65.30919647216797,
+            "mean_brightness": 134.96992945326278,
+            "brightness_std": 48.37715104291005,
+            "texture_variance": 2340.3487430285327,
+            "edge_density": 0.25141093474426807,
+            "horizontal_symmetry": 0.17409621834899458,
+            "vertical_symmetry": 0.10747829448112228,
+            "overall_symmetry": 0.14078725641505843,
+            "bbox_width": 105,
+            "bbox_height": 108,
+            "bbox_area": 11340
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_48",
+          "yolo_detection": {
+            "bbox": [
+              0.864865,
+              0.861765,
+              0.27027,
+              0.276471
+            ],
+            "confidence": 0.0365684,
+            "class": 0
+          },
+          "region_shape": [
+            94,
+            90,
+            3
+          ],
+          "features": {
+            "image_id": "detection_48",
+            "height": 94,
+            "width": 90,
+            "center_brightness": 127.3575,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.28203309692671397,
+            "largest_circle_radius": 50.59614181518555,
+            "mean_brightness": 143.7998817966903,
+            "brightness_std": 42.90739685040044,
+            "texture_variance": 1841.0447044777536,
+            "edge_density": 0.28203309692671397,
+            "horizontal_symmetry": 0.14320915978298632,
+            "vertical_symmetry": 0.14721411450988556,
+            "overall_symmetry": 0.14521163714643592,
+            "bbox_width": 90,
+            "bbox_height": 94,
+            "bbox_area": 8460
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_49",
+          "yolo_detection": {
+            "bbox": [
+              0.297297,
+              0.522059,
+              0.318318,
+              0.291176
+            ],
+            "confidence": 0.0369154,
+            "class": 0
+          },
+          "region_shape": [
+            98,
+            106,
+            3
+          ],
+          "features": {
+            "image_id": "detection_49",
+            "height": 98,
+            "width": 106,
+            "center_brightness": 62.975,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.13284559106661534,
+            "largest_circle_radius": 49.08383560180664,
+            "mean_brightness": 67.9917212167886,
+            "brightness_std": 35.54070389603381,
+            "texture_variance": 1263.141633425553,
+            "edge_density": 0.13284559106661534,
+            "horizontal_symmetry": 0.03004242591812248,
+            "vertical_symmetry": 0.37550285505315795,
+            "overall_symmetry": 0.2027726404856402,
+            "bbox_width": 106,
+            "bbox_height": 98,
+            "bbox_area": 10388
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_50",
+          "yolo_detection": {
+            "bbox": [
+              0.617117,
+              0.425,
+              0.399399,
+              0.444118
+            ],
+            "confidence": 0.0381066,
+            "class": 0
+          },
+          "region_shape": [
+            152,
+            132,
+            3
+          ],
+          "features": {
+            "image_id": "detection_50",
+            "height": 152,
+            "width": 132,
+            "center_brightness": 122.905,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.22223883572567782,
+            "largest_circle_radius": 76.24690246582031,
+            "mean_brightness": 116.15914074960128,
+            "brightness_std": 54.989054326049036,
+            "texture_variance": 3023.796095673172,
+            "edge_density": 0.22223883572567782,
+            "horizontal_symmetry": 0.3901431788502596,
+            "vertical_symmetry": 0.18510356503337877,
+            "overall_symmetry": 0.2876233719418192,
+            "bbox_width": 132,
+            "bbox_height": 152,
+            "bbox_area": 20064
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_51",
+          "yolo_detection": {
+            "bbox": [
+              0.786787,
+              0.410294,
+              0.426426,
+              0.426471
+            ],
+            "confidence": 0.0406182,
+            "class": 0
+          },
+          "region_shape": [
+            146,
+            142,
+            3
+          ],
+          "features": {
+            "image_id": "detection_51",
+            "height": 146,
+            "width": 142,
+            "center_brightness": 131.54375,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.21261817480223807,
+            "largest_circle_radius": 96.62010955810547,
+            "mean_brightness": 116.14301562801467,
+            "brightness_std": 53.52063410560212,
+            "texture_variance": 2864.4582750657405,
+            "edge_density": 0.21261817480223807,
+            "horizontal_symmetry": 0.4245255150681349,
+            "vertical_symmetry": 0.10651123343663477,
+            "overall_symmetry": 0.26551837425238484,
+            "bbox_width": 142,
+            "bbox_height": 146,
+            "bbox_area": 20732
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_52",
+          "yolo_detection": {
+            "bbox": [
+              0.190691,
+              0.133824,
+              0.381381,
+              0.267647
+            ],
+            "confidence": 0.041017,
+            "class": 0
+          },
+          "region_shape": [
+            91,
+            127,
+            3
+          ],
+          "features": {
+            "image_id": "detection_52",
+            "height": 91,
+            "width": 127,
+            "center_brightness": 67.374375,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.06653975945314528,
+            "largest_circle_radius": 30.820241928100586,
+            "mean_brightness": 73.79466989703211,
+            "brightness_std": 26.48598943231776,
+            "texture_variance": 701.507636208848,
+            "edge_density": 0.06653975945314528,
+            "horizontal_symmetry": 0.20168099072512205,
+            "vertical_symmetry": 0.36937722747444124,
+            "overall_symmetry": 0.28552910909978163,
+            "bbox_width": 127,
+            "bbox_height": 91,
+            "bbox_area": 11557
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": []
+          }
+        },
+        {
+          "region_id": "detection_53",
+          "yolo_detection": {
+            "bbox": [
+              0.430931,
+              0.483824,
+              0.459459,
+              0.544118
+            ],
+            "confidence": 0.0429101,
+            "class": 0
+          },
+          "region_shape": [
+            185,
+            152,
+            3
+          ],
+          "features": {
+            "image_id": "detection_53",
+            "height": 185,
+            "width": 152,
+            "center_brightness": 74.256875,
+            "eye_detected": 1,
+            "eye_clarity": 39.150565276780064,
+            "spiral_patterns": 0.17951635846372688,
+            "largest_circle_radius": 59.75970458984375,
+            "mean_brightness": 97.39797297297298,
+            "brightness_std": 55.22315497242801,
+            "texture_variance": 3049.5968451088006,
+            "edge_density": 0.17951635846372688,
+            "horizontal_symmetry": 0.23367805215998325,
+            "vertical_symmetry": 0.3066198665874693,
+            "overall_symmetry": 0.2701489593737263,
+            "bbox_width": 152,
+            "bbox_height": 185,
+            "bbox_area": 28120
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_54",
+          "yolo_detection": {
+            "bbox": [
+              0.825826,
+              0.814706,
+              0.156156,
+              0.370588
+            ],
+            "confidence": 0.0468446,
+            "class": 0
+          },
+          "region_shape": [
+            126,
+            52,
+            3
+          ],
+          "features": {
+            "image_id": "detection_54",
+            "height": 126,
+            "width": 52,
+            "center_brightness": 115.571875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.29044566544566547,
+            "largest_circle_radius": 26.879459381103516,
+            "mean_brightness": 130.7718253968254,
+            "brightness_std": 43.00344968516148,
+            "texture_variance": 1849.2966848242145,
+            "edge_density": 0.29044566544566547,
+            "horizontal_symmetry": 0.4642132030535437,
+            "vertical_symmetry": 0.02073149609357462,
+            "overall_symmetry": 0.24247234957355915,
+            "bbox_width": 52,
+            "bbox_height": 126,
+            "bbox_area": 6552
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_55",
+          "yolo_detection": {
+            "bbox": [
+              0.767267,
+              0.811765,
+              0.465465,
+              0.235294
+            ],
+            "confidence": 0.0471234,
+            "class": 0
+          },
+          "region_shape": [
+            80,
+            155,
+            3
+          ],
+          "features": {
+            "image_id": "detection_55",
+            "height": 80,
+            "width": 155,
+            "center_brightness": 110.956875,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2693548387096774,
+            "largest_circle_radius": 51.5017204284668,
+            "mean_brightness": 130.73443548387098,
+            "brightness_std": 44.40014575685207,
+            "texture_variance": 1971.3729432297087,
+            "edge_density": 0.2693548387096774,
+            "horizontal_symmetry": 0.15036677278328198,
+            "vertical_symmetry": 0.03909787040645015,
+            "overall_symmetry": 0.09473232159486607,
+            "bbox_width": 155,
+            "bbox_height": 80,
+            "bbox_area": 12400
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_56",
+          "yolo_detection": {
+            "bbox": [
+              0.866366,
+              0.516176,
+              0.267267,
+              0.332353
+            ],
+            "confidence": 0.0492199,
+            "class": 0
+          },
+          "region_shape": [
+            113,
+            89,
+            3
+          ],
+          "features": {
+            "image_id": "detection_56",
+            "height": 113,
+            "width": 89,
+            "center_brightness": 136.605,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2500745749229392,
+            "largest_circle_radius": 49.8122444152832,
+            "mean_brightness": 126.27443571641642,
+            "brightness_std": 48.01390264406468,
+            "texture_variance": 2305.334847113721,
+            "edge_density": 0.2500745749229392,
+            "horizontal_symmetry": 0.01966831695003106,
+            "vertical_symmetry": 0.20084912847578515,
+            "overall_symmetry": 0.1102587227129081,
+            "bbox_width": 89,
+            "bbox_height": 113,
+            "bbox_area": 10057
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_57",
+          "yolo_detection": {
+            "bbox": [
+              0.677177,
+              0.285294,
+              0.465465,
+              0.347059
+            ],
+            "confidence": 0.0557865,
+            "class": 0
+          },
+          "region_shape": [
+            118,
+            154,
+            3
+          ],
+          "features": {
+            "image_id": "detection_57",
+            "height": 118,
+            "width": 154,
+            "center_brightness": 99.663125,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.15694475016508916,
+            "largest_circle_radius": 73.49329376220703,
+            "mean_brightness": 85.45592119744663,
+            "brightness_std": 42.247876869522614,
+            "texture_variance": 1784.883099982344,
+            "edge_density": 0.15694475016508916,
+            "horizontal_symmetry": 0.41177058357471796,
+            "vertical_symmetry": 0.09993050920014304,
+            "overall_symmetry": 0.2558505463874305,
+            "bbox_width": 154,
+            "bbox_height": 118,
+            "bbox_area": 18172
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        },
+        {
+          "region_id": "detection_58",
+          "yolo_detection": {
+            "bbox": [
+              0.572072,
+              0.651471,
+              0.561562,
+              0.491176
+            ],
+            "confidence": 0.0638714,
+            "class": 0
+          },
+          "region_shape": [
+            167,
+            188,
+            3
+          ],
+          "features": {
+            "image_id": "detection_58",
+            "height": 167,
+            "width": 188,
+            "center_brightness": 196.009375,
+            "eye_detected": 0,
+            "eye_clarity": 0,
+            "spiral_patterns": 0.2568161549241942,
+            "largest_circle_radius": 91.73524475097656,
+            "mean_brightness": 125.45155433813224,
+            "brightness_std": 53.24634493216527,
+            "texture_variance": 2835.173248635122,
+            "edge_density": 0.2568161549241942,
+            "horizontal_symmetry": 0.17213012987206616,
+            "vertical_symmetry": 0.3768370066083333,
+            "overall_symmetry": 0.2744835682401997,
+            "bbox_width": 188,
+            "bbox_height": 167,
+            "bbox_area": 31396
+          },
+          "intensity_prediction": null,
+          "eye_detection": null,
+          "meteorological_assessment": {
+            "structural_organization": "Poorly Organized",
+            "development_stage": "Tropical Depression",
+            "threat_level": "Unknown",
+            "key_indicators": [
+              "Strong cloud organization"
+            ]
+          }
+        }
+      ],
+      "global_features": {
+        "image_id": "global_image",
+        "height": 340,
+        "width": 333,
+        "center_brightness": 102.15875,
+        "eye_detected": 1,
+        "eye_clarity": 28.165453468962376,
+        "spiral_patterns": 0.1638756403462286,
+        "largest_circle_radius": 236.540283203125,
+        "mean_brightness": 95.12931460872638,
+        "brightness_std": 51.34409378207872,
+        "texture_variance": 2636.2159663028947,
+        "edge_density": 0.1638756403462286,
+        "horizontal_symmetry": 0.19775401010900437,
+        "vertical_symmetry": 0.4557081810356564,
+        "overall_symmetry": 0.3267310955723304,
+        "bbox_width": 333,
+        "bbox_height": 340,
+        "bbox_area": 113220
+      },
+      "overall_assessment": {
+        "timestamp": "2025-09-11T03:15:47.004591",
+        "detection_summary": {
+          "total_cyclones": 59,
+          "avg_yolo_confidence": 0.028584013559322035,
+          "max_yolo_confidence": 0.0638714,
+          "detection_quality": "WEAK_MANY"
+        },
+        "intensity_summary": {},
+        "eye_analysis_summary": {},
+        "overall_risk_level": "Low to Moderate",
+        "recommendations": [
+          "\ud83d\udcca Continue standard monitoring",
+          "\ud83d\udcf1 Maintain public awareness",
+          "\ud83d\udce1 Regular satellite imagery analysis"
+        ],
+        "risk_factors": [
+          "59 cyclone(s) detected"
+        ]
+      }
+    },
+    "astrology": {
+      "prediction_time": "2025-09-11T03:11:00",
+      "location": {
+        "latitude": 19.076,
+        "longitude": 72.8777
+      },
+      "planetary_positions": {
+        "planets": {
+          "Sun": null,
+          "Moon": null,
+          "Mercury": null,
+          "Venus": null,
+          "Mars": null,
+          "Jupiter": null,
+          "Saturn": null,
+          "Rahu": null
+        },
+        "tithi": "Pratipada",
+        "ascendant": 98.27781627614621,
+        "julian_day": 2460929.632638889,
+        "date_time": "2025-09-11 03:11:00",
+        "location": {
+          "latitude": 19.076,
+          "longitude": 72.8777
+        },
+        "calculation_method": "swiss_ephemeris"
+      },
+      "vrs_analysis": {
+        "vrs_score": 25,
+        "risk_level": "LOW",
+        "risk_factors": [
+          "Ascendant in water sign Cancer (+12)",
+          "Monsoon season influence (+8)",
+          "Tropical latitude (+5)"
+        ],
+        "total_factors": 3,
+        "analysis": "Low cyclone risk detected (VRS: 25.0/100). Planetary positions are generally favorable. Standard weather monitoring recommended.",
+        "calculation_method": "swiss_ephemeris"
+      },
+      "summary": "Cyclone Risk: LOW (VRS: 25.0/100)",
+      "system_status": "operational"
+    },
+    "combined_enhanced": {
+      "timestamp": "2025-09-11T03:15:47.007673",
+      "analysis_components": {
+        "yolo_detection": {
+          "cyclones_detected": 59,
+          "average_confidence": 0.028584013559322035,
+          "detection_quality": "WEAK_MANY",
+          "ai_risk_score": 10
+        },
+        "enhanced_meteorological": {
+          "meteorological_risk_score": 10,
+          "intensity_analysis": {
+            "max_intensity_category": 0,
+            "avg_ml_confidence": 0,
+            "intensity_risk_contribution": 0
+          },
+          "eye_analysis": {
+            "eyes_detected": 0,
+            "eye_risk_contribution": 0
+          },
+          "structural_assessment": {
+            "overall_risk_level": "Low to Moderate",
+            "structural_risk_contribution": 10
+          },
+          "threat_indicators": []
+        },
+        "astrology_analysis": {
+          "vrs_score": 25,
+          "risk_level": "LOW",
+          "risk_factors": [
+            "Ascendant in water sign Cancer (+12)",
+            "Monsoon season influence (+8)",
+            "Tropical latitude (+5)"
+          ]
+        }
+      },
+      "enhanced_combined_assessment": {
+        "combined_risk_score": 13.75,
+        "final_risk_level": "LOW",
+        "threat_category": "MINIMAL_THREAT",
+        "confidence": "High",
+        "key_findings": [
+          "Analysis based on satellite imagery and astrological factors"
+        ],
+        "action_required": "Low risk - Continue standard monitoring"
+      },
+      "enhanced_recommendations": [
+        "\ud83d\udcca Continue standard weather monitoring protocols",
+        "\ud83d\udcf1 Maintain public awareness campaigns",
+        "\ud83c\udfe0 Conduct routine preparedness reviews",
+        "\ud83d\udce1 Regular analysis of satellite imagery",
+        "\ud83d\udccb Document conditions for meteorological records",
+        "\ud83c\udf19 Night hours - Exercise extra caution during preparations"
+      ]
+    }
+  },
+  "model_performance": {
+    "yolo_detection": {
+      "model_type": "YOLOv5",
+      "status": "operational"
+    },
+    "enhanced_meteorological": null,
+    "astrology_analysis": {
+      "model_type": "Vedic Astrology Risk Score (VRS)",
+      "status": "operational"
+    }
+  }
+}

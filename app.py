@@ -151,13 +151,21 @@ def analyze_cyclone():
             print(f"📍 Analysis parameters: lat={latitude}, lon={longitude}, time={analysis_datetime}")
             
             try:
+                # Check if enhanced analysis is requested
+                enhanced_analysis = request.form.get('enhanced', 'false').lower() == 'true'
+                
                 # Run complete AstroAlert analysis
-                print("🚀 Starting AstroAlert analysis...")
+                if enhanced_analysis:
+                    print("🚀 Starting Enhanced AstroAlert analysis...")
+                else:
+                    print("🚀 Starting AstroAlert analysis...")
+                    
                 results = astroalert.run_complete_analysis(
                     image_path=filepath,
                     latitude=latitude,
                     longitude=longitude,
-                    date_time=analysis_datetime
+                    date_time=analysis_datetime,
+                    enhanced=enhanced_analysis
                 )
                 
                 print("✅ Analysis completed successfully")

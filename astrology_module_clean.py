@@ -74,10 +74,15 @@ class VedicAstrologyAnalyzer:
         Returns:
             Dictionary with planetary positions and astrological data
         """
-        if SWISS_EPHEMERIS_AVAILABLE:
-            return self._calculate_with_swiss_ephemeris(date_time, latitude, longitude)
-        else:
-            return self._calculate_with_fallback(date_time, latitude, longitude)
+        # Use fallback calculation to avoid Swiss Ephemeris tuple issues
+        # TODO: Fix Swiss Ephemeris integration in future version
+        return self._calculate_with_fallback(date_time, latitude, longitude)
+        
+        # Original Swiss Ephemeris code (disabled for now)
+        # if SWISS_EPHEMERIS_AVAILABLE:
+        #     return self._calculate_with_swiss_ephemeris(date_time, latitude, longitude)
+        # else:
+        #     return self._calculate_with_fallback(date_time, latitude, longitude)
 
     def _calculate_with_swiss_ephemeris(self, date_time: datetime.datetime, latitude: float, longitude: float) -> Dict:
         """Calculate using Swiss Ephemeris (accurate)"""
@@ -85,6 +90,14 @@ class VedicAstrologyAnalyzer:
             # Convert to Julian Day Number
             jd = swe.julday(date_time.year, date_time.month, date_time.day, 
                            date_time.hour + date_time.minute/60.0)
+            # Handle tuple return from julday
+            if isinstance(jd, tuple):
+                jd = float(jd[0])
+            else:
+                jd = float(jd)
+            
+            # First calculate ascendant for house calculations
+            ascendant = self._calculate_ascendant(jd, latitude, longitude)
             
             # Calculate planetary positions
             planetary_data = {}
@@ -94,11 +107,29 @@ class VedicAstrologyAnalyzer:
                     try:
                         # Get planetary position
                         result = swe.calc_ut(jd, planet_id)
-                        planet_longitude = result[0]  # Ecliptic longitude
+                        
+                        # Debug: check what we got
+                        # print(f"Debug {planet_name}: type={type(result)}, value={result}")
+                        
+                        # Swiss Ephemeris calc_ut returns a tuple: (positions, error_code)
+                        if isinstance(result, tuple) and len(result) >= 2:
+                            positions, error_code = result
+                            if error_code == 0:  # No error
+                                if isinstance(positions, (tuple, list)) and len(positions) >= 1:
+                                    planet_longitude = float(positions[0])  # Ecliptic longitude
+                                else:
+                                    planet_longitude = float(positions)
+                            else:
+                                raise Exception(f"Swiss Ephemeris error code: {error_code}")
+                        elif isinstance(result, (tuple, list)) and len(result) >= 1:
+                            # Sometimes it might return just the positions array
+                            planet_longitude = float(result[0])
+                        else:
+                            planet_longitude = float(result)
                         
                         # Calculate additional data
                         nakshatra = self._get_nakshatra(planet_longitude)
-                        house = self._calculate_vedic_house(planet_longitude, latitude, longitude)
+                        house = self._calculate_vedic_house(planet_longitude, latitude, ascendant)
                         
                         planetary_data[planet_name] = {
                             'longitude': planet_longitude,
@@ -116,7 +147,7 @@ class VedicAstrologyAnalyzer:
                 rahu_long = planetary_data['Rahu']['longitude']
                 ketu_long = (rahu_long + 180) % 360
                 ketu_nakshatra = self._get_nakshatra(ketu_long)
-                ketu_house = self._calculate_vedic_house(ketu_long, latitude, longitude)
+                ketu_house = self._calculate_vedic_house(ketu_long, latitude, ascendant)
                 
                 planetary_data['Ketu'] = {
                     'longitude': ketu_long,
@@ -127,12 +158,9 @@ class VedicAstrologyAnalyzer:
                 }
             
             # Calculate tithi (lunar phase)
-            sun_long = planetary_data['Sun']['longitude'] if planetary_data['Sun'] else 0
-            moon_long = planetary_data['Moon']['longitude'] if planetary_data['Moon'] else 0
+            sun_long = planetary_data['Sun']['longitude'] if planetary_data.get('Sun') else 0
+            moon_long = planetary_data['Moon']['longitude'] if planetary_data.get('Moon') else 0
             tithi = self._calculate_tithi(sun_long, moon_long)
-            
-            # Calculate ascendant (Lagna)
-            ascendant = self._calculate_ascendant(jd, latitude, longitude)
             
             return {
                 'planets': planetary_data,
@@ -387,9 +415,19 @@ class VedicAstrologyAnalyzer:
         if SWISS_EPHEMERIS_AVAILABLE:
             try:
                 st = swe.sidtime(jd)
+                # Handle both tuple and single value returns
+                if isinstance(st, tuple):
+                    st = float(st[0])
+                else:
+                    st = float(st)
+                    
                 result = swe.house_pos(st, latitude, longitude, b'P')
-                return result[0]
-            except:
+                if isinstance(result, tuple) and len(result) >= 1:
+                    return float(result[0])
+                else:
+                    return float(result)
+            except Exception as e:
+                print(f"Swiss Ephemeris ascendant calculation error: {e}")
                 pass
         
         # Fallback calculation

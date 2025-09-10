@@ -4,16 +4,26 @@
 const analysisForm = document.getElementById('analysisForm');
 const imageUpload = document.getElementById('imageUpload');
 const datetimeInput = document.getElementById('datetime');
+const enhancedToggle = document.getElementById('enhancedToggle');
+const enhancedFeatures = document.getElementById('enhancedFeatures');
 const loadingSection = document.getElementById('loadingSection');
 const resultsSection = document.getElementById('resultsSection');
 const errorSection = document.getElementById('errorSection');
 const previewImage = document.getElementById('previewImage');
 const uploadText = document.querySelector('.upload-text');
+const loadingSteps = document.getElementById('loadingSteps');
+const enhancedLoadingSteps = document.getElementById('enhancedLoadingSteps');
+const enhancedResultsCard = document.getElementById('enhancedResultsCard');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
     checkServerConnection();
+    
+    // Set up periodic connection check (every 10 seconds)
+    setInterval(() => {
+        checkServerConnection();
+    }, 10000);
 });
 
 function initializeApp() {
@@ -25,6 +35,7 @@ function initializeApp() {
     // Add event listeners
     analysisForm.addEventListener('submit', handleFormSubmission);
     imageUpload.addEventListener('change', handleImageUpload);
+    enhancedToggle.addEventListener('change', handleEnhancedToggle);
 
     // Add loading step animation
     setupLoadingAnimation();
@@ -32,23 +43,51 @@ function initializeApp() {
 
 async function checkServerConnection() {
     try {
-        const response = await fetch('/api/health');
-        const data = await response.json();
+        // Try multiple URLs to ensure we connect to the right server
+        const urls = [
+            '/api/health',
+            'http://localhost:5000/api/health',
+            'http://127.0.0.1:5000/api/health'
+        ];
         
-        if (data.status === 'healthy' && data.astroalert_ready) {
+        let response = null;
+        let data = null;
+        
+        for (const url of urls) {
+            try {
+                console.log(`🔍 Trying to connect to: ${url}`);
+                response = await fetch(url);
+                if (response.ok) {
+                    data = await response.json();
+                    console.log(`✅ Successfully connected to: ${url}`);
+                    break;
+                }
+            } catch (urlError) {
+                console.log(`❌ Failed to connect to: ${url}`);
+                continue;
+            }
+        }
+        
+        if (data && data.status === 'healthy' && data.astroalert_ready) {
             console.log('✅ Server connection successful - Real backend ready!');
             showConnectionStatus(true);
-        } else {
+        } else if (response && response.ok) {
             console.log('⚠️ Server connected but AstroAlert not ready');
             showConnectionStatus(false);
+        } else {
+            throw new Error('No working server found');
         }
     } catch (error) {
-        console.log('🔄 Server not available - Using demo mode');
+        console.log('🔄 Server not available - Using demo mode', error);
         showConnectionStatus(false, true);
     }
 }
 
 function showConnectionStatus(connected, demoMode = false) {
+    // Remove any existing status elements
+    const existingStatus = document.querySelectorAll('.connection-status');
+    existingStatus.forEach(el => el.remove());
+    
     const statusElement = document.createElement('div');
     statusElement.className = 'connection-status';
     statusElement.style.cssText = `
@@ -61,6 +100,7 @@ function showConnectionStatus(connected, demoMode = false) {
         font-weight: 500;
         z-index: 1000;
         transition: all 0.3s ease;
+        cursor: pointer;
     `;
     
     if (connected) {
@@ -68,21 +108,54 @@ function showConnectionStatus(connected, demoMode = false) {
         statusElement.style.background = 'rgba(46, 204, 113, 0.9)';
         statusElement.style.color = 'white';
     } else if (demoMode) {
-        statusElement.textContent = '🎭 Demo Mode - Start server for real analysis';
+        statusElement.textContent = '🎭 Demo Mode - Click to retry connection';
         statusElement.style.background = 'rgba(243, 156, 18, 0.9)';
         statusElement.style.color = 'white';
+        
+        // Add click handler to retry connection
+        statusElement.addEventListener('click', () => {
+            console.log('🔄 Retrying server connection...');
+            statusElement.textContent = '🔄 Connecting...';
+            checkServerConnection();
+        });
     } else {
-        statusElement.textContent = '⚠️ Backend Issue';
+        statusElement.textContent = '⚠️ Backend Issue - Click to retry';
         statusElement.style.background = 'rgba(231, 76, 60, 0.9)';
         statusElement.style.color = 'white';
+        
+        // Add click handler to retry connection
+        statusElement.addEventListener('click', () => {
+            console.log('🔄 Retrying server connection...');
+            statusElement.textContent = '🔄 Connecting...';
+            checkServerConnection();
+        });
     }
     
     document.body.appendChild(statusElement);
     
-    // Remove after 5 seconds
+    // Auto-remove after 8 seconds for success, keep longer for errors
+    const removeDelay = connected ? 5000 : 15000;
     setTimeout(() => {
-        statusElement.remove();
-    }, 5000);
+        if (statusElement.parentNode) {
+            statusElement.remove();
+        }
+    }, removeDelay);
+}
+
+function handleEnhancedToggle(event) {
+    const isEnhanced = event.target.checked;
+    
+    if (isEnhanced) {
+        enhancedFeatures.style.display = 'block';
+        enhancedFeatures.style.maxHeight = '200px';
+        enhancedFeatures.style.opacity = '1';
+        document.getElementById('combinedAssessmentTitle').textContent = 'Enhanced Combined Assessment';
+    } else {
+        enhancedFeatures.style.display = 'none';
+        enhancedFeatures.style.maxHeight = '0';
+        enhancedFeatures.style.opacity = '0';
+        document.getElementById('combinedAssessmentTitle').textContent = 'Combined Assessment';
+    }
 }
 
 function handleImageUpload(event) {
@@ -107,6 +180,7 @@ async function handleFormSubmission(event) {
     const longitude = parseFloat(formData.get('longitude'));
     const datetime = formData.get('datetime');
     const image = formData.get('image');
+    const enhanced = enhancedToggle.checked;
 
     // Validate inputs
     if (!image) {
@@ -129,17 +203,18 @@ async function handleFormSubmission(event) {
         image: image,
         latitude: latitude,
         longitude: longitude,
-        datetime: datetime
+        datetime: datetime,
+        enhanced: enhanced
     });
 }
 
 async function performAnalysis(data) {
     try {
         hideAllSections();
-        showLoadingSection();
+        showLoadingSection(data.enhanced);
         
         // Simulate analysis steps (keep for visual effect)
-        const analysisStepsPromise = simulateAnalysisSteps();
+        const analysisStepsPromise = simulateAnalysisSteps(data.enhanced);
         
         // Make real API call to Flask backend
         const formData = new FormData();
@@ -147,13 +222,38 @@ async function performAnalysis(data) {
         formData.append('latitude', data.latitude);
         formData.append('longitude', data.longitude);
         formData.append('datetime', data.datetime);
+        formData.append('enhanced', data.enhanced ? 'true' : 'false');
         
         console.log('📡 Sending request to backend API...');
         
-        const response = await fetch('/api/analyze', {
-            method: 'POST',
-            body: formData
-        });
+        // Try multiple URLs to ensure we connect to the right server
+        const apiUrls = [
+            '/api/analyze',
+            'http://localhost:5000/api/analyze',
+            'http://127.0.0.1:5000/api/analyze'
+        ];
+        
+        let response = null;
+        for (const apiUrl of apiUrls) {
+            try {
+                console.log(`🔍 Trying API call to: ${apiUrl}`);
+                response = await fetch(apiUrl, {
+                    method: 'POST',
+                    body: formData
+                });
+                if (response.ok) {
+                    console.log(`✅ API call successful to: ${apiUrl}`);
+                    break;
+                }
+            } catch (urlError) {
+                console.log(`❌ API call failed to: ${apiUrl}`);
+                continue;
+            }
+        }
+        
+        if (!response || !response.ok) {
+            throw new Error('All API endpoints failed');
+        }
         
         const results = await response.json();
         
@@ -163,7 +263,11 @@ async function performAnalysis(data) {
         if (results.success) {
             console.log('✅ Analysis completed successfully:', results);
             hideLoadingSection();
-            displayRealResults(results);
+            if (data.enhanced && results.results && results.results.combined_enhanced) {
+                displayEnhancedResults(results);
+            } else {
+                displayRealResults(results);
+            }
         } else {
             console.error('❌ Analysis failed:', results.error);
             hideLoadingSection();
@@ -189,8 +293,9 @@ async function performAnalysis(data) {
     }
 }
 
-async function simulateAnalysisSteps() {
-    const steps = document.querySelectorAll('.step');
+async function simulateAnalysisSteps(isEnhanced = false) {
+    const stepsContainer = isEnhanced ? enhancedLoadingSteps : loadingSteps;
+    const steps = stepsContainer.querySelectorAll('.step');
     
     for (let i = 0; i < steps.length; i++) {
         // Remove active class from all steps
@@ -351,12 +456,81 @@ function generateMockCombinedResults(detection, astrology) {
 function displayRealResults(apiResponse) {
     // Extract results from API response
     const results = apiResponse.results;
+    console.log('🔍 Debug: Full API Response:', apiResponse);
+    console.log('🔍 Debug: Results structure:', results);
     
-    // Display AI Detection Results
-    const detection = results.detection;
-    document.getElementById('cyclonesCount').textContent = detection.total_cyclones || 0;
-    document.getElementById('avgConfidence').textContent = `${Math.round((detection.avg_confidence || 0) * 100)}%`;
-    document.getElementById('aiRiskScore').textContent = results.combined.ai_detection?.ai_risk_score || 0;
+    // Deep debug - log all possible detection-related paths
+    console.log('🔍 Debug: results.detection:', results.detection);
+    console.log('🔍 Debug: results.yolo_detection:', results.yolo_detection);
+    console.log('🔍 Debug: results.enhanced_meteorological:', results.enhanced_meteorological);
+    
+    // If enhanced_meteorological exists, explore its structure
+    if (results.enhanced_meteorological) {
+        console.log('🔍 Debug: enhanced_meteorological.overall_assessment:', results.enhanced_meteorological.overall_assessment);
+        console.log('🔍 Debug: enhanced_meteorological.detection_summary:', results.enhanced_meteorological.detection_summary);
+        if (results.enhanced_meteorological.overall_assessment) {
+            console.log('🔍 Debug: overall_assessment.detection_summary:', results.enhanced_meteorological.overall_assessment.detection_summary);
+        }
+    }
+    
+    // Function to safely extract nested values
+    const safeGet = (obj, path) => {
+        return path.split('.').reduce((current, key) => current && current[key], obj);
+    };
+    
+    // Display AI Detection Results - handle multiple possible structures
+    const detection = results.detection || results.yolo_detection || {};
+    
+    // Try to find total cyclones in various locations
+    let totalCyclones = detection.total_cyclones || 
+        safeGet(results, 'enhanced_meteorological.overall_assessment.detection_summary.total_cyclones') ||
+        safeGet(results, 'enhanced_meteorological.detection_summary.total_cyclones') ||
+        (detection.detections ? detection.detections.length : 0) ||
+        (results.yolo_detection && results.yolo_detection.detections ? results.yolo_detection.detections.length : 0) ||
+        0;
+    
+    // Additional fallback: count detections from enhanced analysis if available
+    if (totalCyclones === 0 && results.enhanced_meteorological) {
+        const enhancedDetections = safeGet(results, 'enhanced_meteorological.yolo_detections') ||
+            safeGet(results, 'enhanced_meteorological.detections');
+        if (enhancedDetections && Array.isArray(enhancedDetections)) {
+            totalCyclones = enhancedDetections.length;
+        }
+    }
+    
+    // Try to find average confidence in various locations    
+    let avgConfidence = detection.avg_confidence || 
+        safeGet(results, 'enhanced_meteorological.overall_assessment.detection_summary.avg_yolo_confidence') ||
+        safeGet(results, 'enhanced_meteorological.detection_summary.avg_yolo_confidence') ||
+        0;
+    
+    // If no average confidence found, calculate from detections array
+    if (avgConfidence === 0) {
+        let detectionsArray = detection.detections || 
+            (results.yolo_detection && results.yolo_detection.detections) ||
+            safeGet(results, 'enhanced_meteorological.yolo_detections') ||
+            safeGet(results, 'enhanced_meteorological.detections');
+        
+        if (detectionsArray && Array.isArray(detectionsArray) && detectionsArray.length > 0) {
+            const confidenceSum = detectionsArray.reduce((sum, det) => {
+                return sum + (det.confidence || det.score || 0);
+            }, 0);
+            avgConfidence = confidenceSum / detectionsArray.length;
+        }
+    }
+    
+    console.log('🔍 Debug: Total cyclones found:', totalCyclones);
+    console.log('🔍 Debug: Avg confidence found:', avgConfidence);
+        
+    document.getElementById('cyclonesCount').textContent = totalCyclones;
+    document.getElementById('avgConfidence').textContent = `${Math.round(avgConfidence * 100)}%`;
+    
+    // AI risk score may be under various locations
+    const aiRiskScoreVal = (results.combined && results.combined.ai_detection && results.combined.ai_detection.ai_risk_score)
+        || (results.combined_enhanced && results.combined_enhanced.combined_assessment && results.combined_enhanced.combined_assessment.ai_detection && results.combined_enhanced.combined_assessment.ai_detection.ai_risk_score)
+        || (results.combined_enhanced && results.combined_enhanced.ai_risk_score)
+        || 0;
+    document.getElementById('aiRiskScore').textContent = aiRiskScoreVal;
     
     // Display Astrology Results
     const astrology = results.astrology.vrs_analysis;
@@ -416,6 +590,70 @@ function displayRealResults(apiResponse) {
             }, index * 100);
         });
     }, 100);
+}
+
+function displayEnhancedResults(apiResponse) {
+    console.log('🧠 Displaying enhanced analysis results...');
+    
+    // First display regular results
+    displayRealResults(apiResponse);
+    
+    // Extract enhanced results from API response
+    const results = apiResponse.results;
+    const enhanced = results.combined_enhanced;
+    
+    if (!enhanced) {
+        console.warn('⚠️ No enhanced results found in API response');
+        return;
+    }
+    
+    // Show enhanced results card
+    const enhancedCard = document.getElementById('enhancedResultsCard');
+    enhancedCard.classList.remove('hidden');
+    
+    // Display Enhanced Meteorological Results
+    if (enhanced.intensity_analysis) {
+        const intensity = enhanced.intensity_analysis;
+        
+        // Intensity Classification
+        const intensityElement = document.getElementById('intensityClassification');
+        intensityElement.textContent = intensity.predicted_category || 'Unknown';
+        intensityElement.className = `metric-value intensity-badge ${(intensity.predicted_category || '').toLowerCase().replace(' ', '-')}`;
+        
+        // ML Confidence
+        const mlConfidenceElement = document.getElementById('mlConfidence');
+        mlConfidenceElement.textContent = intensity.confidence ? `${Math.round(intensity.confidence * 100)}%` : '0%';
+    }
+    
+    if (enhanced.eye_analysis) {
+        const eye = enhanced.eye_analysis;
+        
+        // Eye Detection
+        const eyeElement = document.getElementById('eyeDetection');
+        eyeElement.textContent = eye.eye_detected ? 'Detected' : 'Not Detected';
+        eyeElement.className = `metric-value eye-badge ${eye.eye_detected ? 'detected' : 'not-detected'}`;
+        
+        // Eye Clarity
+        const clarityElement = document.getElementById('eyeClarity');
+        clarityElement.textContent = eye.clarity_score ? `${Math.round(eye.clarity_score * 100)}%` : '0%';
+    }
+    
+    if (enhanced.meteorological_features) {
+        const features = enhanced.meteorological_features;
+        
+        // Structural Organization
+        const organizationElement = document.getElementById('structuralOrganization');
+        organizationElement.textContent = features.structural_organization || 'Unknown';
+        
+        // Development Stage
+        const stageElement = document.getElementById('developmentStage');
+        stageElement.textContent = features.development_stage || 'Unknown';
+    }
+    
+    // Update assessment title for enhanced mode
+    document.getElementById('combinedAssessmentTitle').textContent = 'Enhanced Combined Assessment';
+    
+    console.log('✅ Enhanced results displayed successfully');
 }
 
 function displayResults(results) {
@@ -501,10 +739,19 @@ function hideAllSections() {
     errorSection.classList.add('hidden');
 }
 
-function showLoadingSection() {
+function showLoadingSection(isEnhanced = false) {
     hideAllSections();
     loadingSection.classList.remove('hidden');
     loadingSection.classList.add('fade-in');
+    
+    // Show appropriate loading steps
+    if (isEnhanced) {
+        loadingSteps.classList.add('hidden');
+        enhancedLoadingSteps.classList.remove('hidden');
+    } else {
+        loadingSteps.classList.remove('hidden');
+        enhancedLoadingSteps.classList.add('hidden');
+    }
 }
 
 function hideLoadingSection() {
