@@ -1,18 +1,18 @@
 {
-  "analysis_id": "enhanced_astroalert_20250911_040936",
-  "analysis_timestamp": "2025-09-11T04:09:36.865469",
+  "analysis_id": "enhanced_astroalert_20250911_033928",
+  "analysis_timestamp": "2025-09-11T03:39:28.928066",
   "analysis_type": "enhanced_astroalert",
   "input_data": {
-    "image_path": "temp_uploads\\20250911_040905_2.jpg",
+    "image_path": "temp_uploads\\20250911_033858_2.jpg",
     "location": {
       "latitude": 19.076,
       "longitude": 72.8777
     },
-    "date_time": "2025-09-11T04:08:00"
+    "date_time": "2025-09-11T03:38:00"
   },
   "results": {
     "yolo_detection": {
-      "image_path": "temp_uploads\\20250911_040905_2.jpg",
+      "image_path": "temp_uploads\\20250911_033858_2.jpg",
       "detections": [
         {
           "bbox": [
@@ -667,16 +667,16 @@
         0.0557865,
         0.0638714
       ],
-      "detection_time": "2025-09-11T04:09:35.927791",
+      "detection_time": "2025-09-11T03:39:28.329669",
       "avg_confidence": 0.028584013559322035,
       "max_confidence": 0.0638714,
       "detection_quality": "WEAK_MANY"
     },
     "enhanced_meteorological": {
-      "timestamp": "2025-09-11T04:09:35.945764",
-      "image_path": "temp_uploads\\20250911_040905_2.jpg",
+      "timestamp": "2025-09-11T03:39:28.355980",
+      "image_path": "temp_uploads\\20250911_033858_2.jpg",
       "yolo_detections": {
-        "image_path": "temp_uploads\\20250911_040905_2.jpg",
+        "image_path": "temp_uploads\\20250911_033858_2.jpg",
         "detections": [
           {
             "bbox": [
@@ -1331,7 +1331,7 @@
           0.0557865,
           0.0638714
         ],
-        "detection_time": "2025-09-11T04:09:35.927791",
+        "detection_time": "2025-09-11T03:39:28.329669",
         "avg_confidence": 0.028584013559322035,
         "max_confidence": 0.0638714,
         "detection_quality": "WEAK_MANY"
@@ -4291,7 +4291,7 @@
         "bbox_area": 113900
       },
       "overall_assessment": {
-        "timestamp": "2025-09-11T04:09:36.861777",
+        "timestamp": "2025-09-11T03:39:28.923707",
         "detection_summary": {
           "total_cyclones": 59,
           "avg_yolo_confidence": 0.028584013559322035,
@@ -4315,7 +4315,7 @@
       }
     },
     "astrology": {
-      "prediction_time": "2025-09-11T04:08:00",
+      "prediction_time": "2025-09-11T03:38:00",
       "location": {
         "latitude": 19.076,
         "longitude": 72.8777
@@ -4387,9 +4387,9 @@
           }
         },
         "tithi": "Purnima/Amavasya",
-        "ascendant": 98.38795153301479,
-        "julian_day": 2460930.172222222,
-        "date_time": "2025-09-11 04:08:00",
+        "ascendant": 83.38795153301479,
+        "julian_day": 2460930.1513888887,
+        "date_time": "2025-09-11 03:38:00",
         "location": {
           "latitude": 19.076,
           "longitude": 38.387951533014785
@@ -4397,26 +4397,25 @@
         "calculation_method": "fallback_approximation"
       },
       "vrs_analysis": {
-        "vrs_score": 70,
-        "risk_level": "EXTREME",
+        "vrs_score": 58,
+        "risk_level": "HIGH",
         "risk_factors": [
           "Ketu in water sign Scorpio (+15)",
           "Rahu-Ketu axis in water signs (+12)",
           "Moon in water nakshatra Ashlesha (+8)",
           "Critical tithi: Purnima/Amavasya (+10)",
-          "Ascendant in water sign Cancer (+12)",
           "Monsoon season influence (+8)",
           "Tropical latitude (+5)"
         ],
-        "total_factors": 7,
-        "analysis": "Extreme cyclone risk detected (VRS: 70.0/100). Multiple critical planetary combinations suggest very high probability of severe weather conditions. Immediate emergency preparedness required.",
+        "total_factors": 6,
+        "analysis": "High cyclone risk detected (VRS: 58.0/100). Several concerning planetary alignments present. Enhanced monitoring and preparedness measures recommended.",
         "calculation_method": "fallback_approximation"
       },
-      "summary": "Cyclone Risk: EXTREME (VRS: 70.0/100)",
+      "summary": "Cyclone Risk: HIGH (VRS: 58.0/100)",
       "system_status": "operational"
     },
     "combined_enhanced": {
-      "timestamp": "2025-09-11T04:09:36.864391",
+      "timestamp": "2025-09-11T03:39:28.927041",
       "analysis_components": {
         "yolo_detection": {
           "cyclones_detected": 59,
@@ -4442,21 +4441,20 @@
           "threat_indicators": []
         },
         "astrology_analysis": {
-          "vrs_score": 70,
-          "risk_level": "EXTREME",
+          "vrs_score": 58,
+          "risk_level": "HIGH",
           "risk_factors": [
             "Ketu in water sign Scorpio (+15)",
             "Rahu-Ketu axis in water signs (+12)",
             "Moon in water nakshatra Ashlesha (+8)",
             "Critical tithi: Purnima/Amavasya (+10)",
-            "Ascendant in water sign Cancer (+12)",
             "Monsoon season influence (+8)",
             "Tropical latitude (+5)"
           ]
         }
       },
       "enhanced_combined_assessment": {
-        "combined_risk_score": 25.0,
+        "combined_risk_score": 22.0,
         "final_risk_level": "LOW_TO_MODERATE",
         "threat_category": "MINOR_THREAT",
         "confidence": "High",

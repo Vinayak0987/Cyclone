@@ -1,18 +1,18 @@
 {
-  "analysis_id": "enhanced_astroalert_20250911_040936",
-  "analysis_timestamp": "2025-09-11T04:09:36.865469",
+  "analysis_id": "enhanced_astroalert_20250911_040415",
+  "analysis_timestamp": "2025-09-11T04:04:15.297648",
   "analysis_type": "enhanced_astroalert",
   "input_data": {
-    "image_path": "temp_uploads\\20250911_040905_2.jpg",
+    "image_path": "temp_uploads\\20250911_040343_2.jpg",
     "location": {
       "latitude": 19.076,
       "longitude": 72.8777
     },
-    "date_time": "2025-09-11T04:08:00"
+    "date_time": "2025-09-11T04:03:00"
   },
   "results": {
     "yolo_detection": {
-      "image_path": "temp_uploads\\20250911_040905_2.jpg",
+      "image_path": "temp_uploads\\20250911_040343_2.jpg",
       "detections": [
         {
           "bbox": [
@@ -667,16 +667,16 @@
         0.0557865,
         0.0638714
       ],
-      "detection_time": "2025-09-11T04:09:35.927791",
+      "detection_time": "2025-09-11T04:04:14.533514",
       "avg_confidence": 0.028584013559322035,
       "max_confidence": 0.0638714,
       "detection_quality": "WEAK_MANY"
     },
     "enhanced_meteorological": {
-      "timestamp": "2025-09-11T04:09:35.945764",
-      "image_path": "temp_uploads\\20250911_040905_2.jpg",
+      "timestamp": "2025-09-11T04:04:14.637833",
+      "image_path": "temp_uploads\\20250911_040343_2.jpg",
       "yolo_detections": {
-        "image_path": "temp_uploads\\20250911_040905_2.jpg",
+        "image_path": "temp_uploads\\20250911_040343_2.jpg",
         "detections": [
           {
             "bbox": [
@@ -1331,7 +1331,7 @@
           0.0557865,
           0.0638714
         ],
-        "detection_time": "2025-09-11T04:09:35.927791",
+        "detection_time": "2025-09-11T04:04:14.533514",
         "avg_confidence": 0.028584013559322035,
         "max_confidence": 0.0638714,
         "detection_quality": "WEAK_MANY"
@@ -4291,7 +4291,7 @@
         "bbox_area": 113900
       },
       "overall_assessment": {
-        "timestamp": "2025-09-11T04:09:36.861777",
+        "timestamp": "2025-09-11T04:04:15.286002",
         "detection_summary": {
           "total_cyclones": 59,
           "avg_yolo_confidence": 0.028584013559322035,
@@ -4315,7 +4315,7 @@
       }
     },
     "astrology": {
-      "prediction_time": "2025-09-11T04:08:00",
+      "prediction_time": "2025-09-11T04:03:00",
       "location": {
         "latitude": 19.076,
         "longitude": 72.8777
@@ -4388,8 +4388,8 @@
         },
         "tithi": "Purnima/Amavasya",
         "ascendant": 98.38795153301479,
-        "julian_day": 2460930.172222222,
-        "date_time": "2025-09-11 04:08:00",
+        "julian_day": 2460930.16875,
+        "date_time": "2025-09-11 04:03:00",
         "location": {
           "latitude": 19.076,
           "longitude": 38.387951533014785
@@ -4416,7 +4416,7 @@
       "system_status": "operational"
     },
     "combined_enhanced": {
-      "timestamp": "2025-09-11T04:09:36.864391",
+      "timestamp": "2025-09-11T04:04:15.295399",
       "analysis_components": {
         "yolo_detection": {
           "cyclones_detected": 59,

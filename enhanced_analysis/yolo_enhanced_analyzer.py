@@ -60,16 +60,24 @@ class YOLOEnhancedAnalyzer:
             # Load feature-based intensity classifier
             feature_model_path = self.models_dir / 'cyclone_feature_classifier.joblib'
             if feature_model_path.exists():
-                self.models['feature_classifier'] = joblib.load(feature_model_path)
-                print("✅ Loaded feature-based intensity classifier")
+                try:
+                    self.models['feature_classifier'] = joblib.load(feature_model_path)
+                    print("✅ Loaded feature-based intensity classifier")
+                except Exception as model_error:
+                    print(f"⚠️ Feature classifier found but couldn't load due to sklearn compatibility: {model_error}")
+                    print("💡 Continuing without ML-based intensity classification - using fallback methods")
             else:
                 print("⚠️ Feature classifier not found - intensity analysis will be limited")
             
             # Load eye detection model
             eye_model_path = self.models_dir / 'cyclone_eye_detector.joblib'
             if eye_model_path.exists():
-                self.models['eye_detector'] = joblib.load(eye_model_path)
-                print("✅ Loaded eye detection model")
+                try:
+                    self.models['eye_detector'] = joblib.load(eye_model_path)
+                    print("✅ Loaded eye detection model")
+                except Exception as model_error:
+                    print(f"⚠️ Eye detector found but couldn't load due to sklearn compatibility: {model_error}")
+                    print("💡 Continuing without ML-based eye detection - using fallback methods")
             else:
                 print("⚠️ Eye detector not found - eye analysis will be limited")
             
@@ -84,6 +92,7 @@ class YOLOEnhancedAnalyzer:
                 
         except Exception as e:
             print(f"❌ Error loading models: {str(e)}")
+            print("💡 Continuing with fallback analysis methods")
             self.models = {}
             self.training_report = None
     

@@ -463,73 +463,52 @@ function displayRealResults(apiResponse) {
     console.log('🔍 Debug: results.detection:', results.detection);
     console.log('🔍 Debug: results.yolo_detection:', results.yolo_detection);
     console.log('🔍 Debug: results.enhanced_meteorological:', results.enhanced_meteorological);
+    console.log('🔍 Debug: results.combined_enhanced:', results.combined_enhanced);
     
-    // If enhanced_meteorological exists, explore its structure
-    if (results.enhanced_meteorological) {
-        console.log('🔍 Debug: enhanced_meteorological.overall_assessment:', results.enhanced_meteorological.overall_assessment);
-        console.log('🔍 Debug: enhanced_meteorological.detection_summary:', results.enhanced_meteorological.detection_summary);
-        if (results.enhanced_meteorological.overall_assessment) {
-            console.log('🔍 Debug: overall_assessment.detection_summary:', results.enhanced_meteorological.overall_assessment.detection_summary);
-        }
-    }
+
     
     // Function to safely extract nested values
     const safeGet = (obj, path) => {
         return path.split('.').reduce((current, key) => current && current[key], obj);
     };
     
-    // Display AI Detection Results - handle multiple possible structures
-    const detection = results.detection || results.yolo_detection || {};
+    // Determine if this is enhanced analysis based on presence of enhanced results
+    const isEnhanced = !!(results.combined_enhanced || results.enhanced_meteorological);
+    console.log('🔍 Debug: Enhanced analysis detected:', isEnhanced);
     
-    // Try to find total cyclones in various locations
-    let totalCyclones = detection.total_cyclones || 
-        safeGet(results, 'enhanced_meteorological.overall_assessment.detection_summary.total_cyclones') ||
-        safeGet(results, 'enhanced_meteorological.detection_summary.total_cyclones') ||
-        (detection.detections ? detection.detections.length : 0) ||
-        (results.yolo_detection && results.yolo_detection.detections ? results.yolo_detection.detections.length : 0) ||
-        0;
+    // Display AI Detection Results - handle both regular and enhanced structures
+    let detection, totalCyclones, avgConfidence, aiRiskScoreVal;
     
-    // Additional fallback: count detections from enhanced analysis if available
-    if (totalCyclones === 0 && results.enhanced_meteorological) {
-        const enhancedDetections = safeGet(results, 'enhanced_meteorological.yolo_detections') ||
-            safeGet(results, 'enhanced_meteorological.detections');
-        if (enhancedDetections && Array.isArray(enhancedDetections)) {
-            totalCyclones = enhancedDetections.length;
-        }
-    }
-    
-    // Try to find average confidence in various locations    
-    let avgConfidence = detection.avg_confidence || 
-        safeGet(results, 'enhanced_meteorological.overall_assessment.detection_summary.avg_yolo_confidence') ||
-        safeGet(results, 'enhanced_meteorological.detection_summary.avg_yolo_confidence') ||
-        0;
-    
-    // If no average confidence found, calculate from detections array
-    if (avgConfidence === 0) {
-        let detectionsArray = detection.detections || 
-            (results.yolo_detection && results.yolo_detection.detections) ||
-            safeGet(results, 'enhanced_meteorological.yolo_detections') ||
-            safeGet(results, 'enhanced_meteorological.detections');
+    if (isEnhanced && results.yolo_detection) {
+        // Enhanced analysis uses yolo_detection
+        detection = results.yolo_detection;
+        totalCyclones = detection.total_cyclones || 0;
+        avgConfidence = detection.avg_confidence || 0;
         
-        if (detectionsArray && Array.isArray(detectionsArray) && detectionsArray.length > 0) {
-            const confidenceSum = detectionsArray.reduce((sum, det) => {
-                return sum + (det.confidence || det.score || 0);
-            }, 0);
-            avgConfidence = confidenceSum / detectionsArray.length;
+        // Enhanced AI risk score is in combined_enhanced
+        if (results.combined_enhanced && results.combined_enhanced.combined_assessment) {
+            const enhancedCombined = results.combined_enhanced.combined_assessment;
+            aiRiskScoreVal = enhancedCombined.ai_detection ? enhancedCombined.ai_detection.ai_risk_score : 0;
+        } else {
+            aiRiskScoreVal = 0;
         }
+    } else {
+        // Regular analysis uses detection
+        detection = results.detection || {};
+        totalCyclones = detection.total_cyclones || 0;
+        avgConfidence = detection.avg_confidence || 0;
+        
+        // Regular AI risk score is in combined
+        aiRiskScoreVal = (results.combined && results.combined.ai_detection) ? 
+            results.combined.ai_detection.ai_risk_score : 0;
     }
     
     console.log('🔍 Debug: Total cyclones found:', totalCyclones);
     console.log('🔍 Debug: Avg confidence found:', avgConfidence);
+    console.log('🔍 Debug: AI Risk Score found:', aiRiskScoreVal);
         
     document.getElementById('cyclonesCount').textContent = totalCyclones;
     document.getElementById('avgConfidence').textContent = `${Math.round(avgConfidence * 100)}%`;
-    
-    // AI risk score may be under various locations
-    const aiRiskScoreVal = (results.combined && results.combined.ai_detection && results.combined.ai_detection.ai_risk_score)
-        || (results.combined_enhanced && results.combined_enhanced.combined_assessment && results.combined_enhanced.combined_assessment.ai_detection && results.combined_enhanced.combined_assessment.ai_detection.ai_risk_score)
-        || (results.combined_enhanced && results.combined_enhanced.ai_risk_score)
-        || 0;
     document.getElementById('aiRiskScore').textContent = aiRiskScoreVal;
     
     // Display Astrology Results
@@ -556,22 +535,49 @@ function displayRealResults(apiResponse) {
         riskFactorsContainer.appendChild(noFactorsElement);
     }
     
-    // Display Combined Assessment
-    const combined = results.combined.combined_assessment;
-    document.getElementById('combinedRiskScore').textContent = Math.round(combined.combined_risk_score);
+
+    // Display Combined Assessment - handle both regular and enhanced
+    let combinedAssessment, combinedRiskScore, finalRiskLevel, actionRequired;
+    let recommendations = [];
+    
+    if (isEnhanced && results.combined_enhanced && results.combined_enhanced.combined_assessment) {
+        // Enhanced analysis results
+        combinedAssessment = results.combined_enhanced.combined_assessment;
+        combinedRiskScore = combinedAssessment.combined_risk_score || 0;
+        finalRiskLevel = combinedAssessment.final_risk_level || 'LOW';
+        actionRequired = combinedAssessment.action_required || 'Standard monitoring recommended';
+        recommendations = results.combined_enhanced.recommendations || [];
+    } else if (results.combined && results.combined.combined_assessment) {
+        // Regular analysis results
+        combinedAssessment = results.combined.combined_assessment;
+        combinedRiskScore = combinedAssessment.combined_risk_score || 0;
+        finalRiskLevel = combinedAssessment.final_risk_level || 'LOW';
+        actionRequired = combinedAssessment.action_required || 'Standard monitoring recommended';
+        recommendations = results.combined.recommendations || [];
+    } else {
+        // Fallback values
+        combinedRiskScore = 0;
+        finalRiskLevel = 'LOW';
+        actionRequired = 'Standard monitoring recommended';
+    }
+    
+    console.log('🔍 Debug: Combined Risk Score:', combinedRiskScore);
+    console.log('🔍 Debug: Final Risk Level:', finalRiskLevel);
+    
+    document.getElementById('combinedRiskScore').textContent = Math.round(combinedRiskScore);
     const finalRiskElement = document.getElementById('finalRiskLevel');
-    finalRiskElement.textContent = combined.final_risk_level;
-    finalRiskElement.className = `final-risk-level ${combined.final_risk_level}`;
-    document.getElementById('actionText').textContent = combined.action_required;
+    finalRiskElement.textContent = finalRiskLevel;
+    finalRiskElement.className = `final-risk-level ${finalRiskLevel}`;
+    document.getElementById('actionText').textContent = actionRequired;
     
     // Update risk circle color based on score
-    updateRiskCircleColor(combined.combined_risk_score);
+    updateRiskCircleColor(combinedRiskScore);
     
     // Display Recommendations
     const recommendationsContainer = document.getElementById('recommendationsList');
     recommendationsContainer.innerHTML = '';
-    if (results.combined.recommendations) {
-        results.combined.recommendations.forEach(recommendation => {
+    if (recommendations && recommendations.length > 0) {
+        recommendations.forEach(recommendation => {
             const recElement = document.createElement('div');
             recElement.className = 'recommendation';
             recElement.innerHTML = `<div class="recommendation-text">${recommendation}</div>`;
